@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51524239-3790-4FA1-B927-2F231DC84925}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mvc_Clinic</RootNamespace>
+    <AssemblyName>Mvc_Clinic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CheckPasswordStatusEnum.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\HeadOfClinicController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddTestModel.cs" />
+    <Compile Include="Models\AdminDAL.cs" />
+    <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\ChangePasswordAdmin.cs" />
+    <Compile Include="Models\CustomDeptAddModel.cs" />
+    <Compile Include="Models\DoctorIDModel.cs" />
+    <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\DocWorkingTimingModel.cs" />
+    <Compile Include="Models\FailedEventLogModel.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
+    <Compile Include="Models\ForgetPasswordModel.cs" />
+    <Compile Include="Models\ForgetPasswordToEmailModel.cs" />
+    <Compile Include="Models\HomeDAL.cs" />
+    <Compile Include="Models\IAdminDAL.cs" />
+    <Compile Include="Models\IHomeDAL.cs" />
+    <Compile Include="Models\LoginLogModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\SearchDoctorModel.cs" />
+    <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\StaffName.cs" />
+    <Compile Include="Models\StaffPeriodModel.cs" />
+    <Compile Include="Models\TestDepartmentsModel.cs" />
+    <Compile Include="Models\TestSub_DepartmentsModel.cs" />
+    <Compile Include="Models\WorkingDays.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminImages\admin.jpg" />
+    <Content Include="Content\feedback_contact.png" />
+    <Content Include="Content\images\animated-overlay.gif" />
+    <Content Include="Content\images\healthTips.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery.autocomplete.css" />
+    <Content Include="Content\Mybtn_style.css" />
+    <Content Include="Content\MyTemplate\css\animate.css" />
+    <Content Include="Content\MyTemplate\css\font-awesome.css" />
+    <Content Include="Content\MyTemplate\css\font-awesome.min.css" />
+    <Content Include="Content\MyTemplate\css\global\global.css" />
+    <Content Include="Content\MyTemplate\css\SliderCss.css" />
+    <Content Include="Content\MyTemplate\css\style.css" />
+    <Content Include="Content\MyTemplate\css\theme\gold.css" />
+    <Content Include="Content\MyTemplate\css\theme\red.css" />
+    <Content Include="Content\MyTemplate\dev-tools\gulpfile.js" />
+    <Content Include="Content\MyTemplate\dev-tools\index.js" />
+    <Content Include="Content\MyTemplate\DevPageStyle\animate.css" />
+    <Content Include="Content\MyTemplate\DevPageStyle\bootstrap.min.css" />
+    <Content Include="Content\MyTemplate\DevPageStyle\bootstrap.min.js" />
+    <Content Include="Content\MyTemplate\DevPageStyle\custom.js" />
+    <Content Include="Content\MyTemplate\DevPageStyle\font-awesome.min.css" />
+    <Content Include="Content\MyTemplate\DevPageStyle\jquery.min.js" />
+    <Content Include="Content\MyTemplate\DevPageStyle\wow.min.js" />
+    <Content Include="Content\MyTemplate\images\01.jpg" />
+    <Content Include="Content\MyTemplate\images\atanu.jpg" />
+    <Content Include="Content\MyTemplate\images\dev_bg.jpg" />
+    <Content Include="Content\MyTemplate\images\gmail.png" />
+    <Content Include="Content\MyTemplate\images\souvik_saha.jpg" />
+    <Content Include="Content\MyTemplate\images\subha.jpg" />
+    <Content Include="Content\MyTemplate\images\whatsapp.png" />
+    <Content Include="Content\MyTemplate\img\1920x1080\15.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\01.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\admin_bg2.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\banner-ask-your-experts.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\bg1.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\cover16.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\cover23.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\coverNew.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\faq1.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\home_rest.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\parallax3.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\service_bg.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\Wallpaper.jpg" />
+    <Content Include="Content\MyTemplate\img\1920x1080\why1.jpg" />
+    <Content Include="Content\MyTemplate\img\clients\01-dark.png" />
+    <Content Include="Content\MyTemplate\img\clients\01-white.png" />
+    <Content Include="Content\MyTemplate\img\clients\02-dark.png" />
+    <Content Include="Content\MyTemplate\img\clients\02-white.png" />
+    <Content Include="Content\MyTemplate\img\clients\03-dark.png" />
+    <Content Include="Content\MyTemplate\img\clients\03-white.png" />
+    <Content Include="Content\MyTemplate\img\clients\04-dark.png" />
+    <Content Include="Content\MyTemplate\img\clients\04-white.png" />
+    <Content Include="Content\MyTemplate\img\clients\05-dark.png" />
+    <Content Include="Content\MyTemplate\img\clients\05-white.png" />
+    <Content Include="Content\MyTemplate\img\doctor-banner-edited.jpg" />
+    <Content Include="Content\MyTemplate\img\Doctorlist.jpg" />
+    <Content Include="Content\MyTemplate\img\Logo\logo.png" />
+    <Content Include="Content\MyTemplate\img\widgets\gmap2\cd-icon-controller.svg" />
+    <Content Include="Content\MyTemplate\img\widgets\gmap2\cd-icon-location.png" />
+    <Content Include="Content\MyTemplate\img\widgets\gmap2\cd-icon-location.svg" />
+    <Content Include="Content\MyTemplate\img\widgets\gmap\cd-icon-controller.svg" />
+    <Content Include="Content\MyTemplate\img\widgets\gmap\cd-icon-location.png" />
+    <Content Include="Content\MyTemplate\img\widgets\gmap\cd-icon-location.svg" />
+    <Content Include="Content\MyTemplate\img\widgets\worldmap.png" />
+    <Content Include="Content\MyTemplate\js404\jquery-2.1.3.min.js" />
+    <Content Include="Content\MyTemplate\js404\main.js" />
+    <Content Include="Content\MyTemplate\js404\modernizr.js" />
+    <Content Include="Content\MyTemplate\js404\plugins.js" />
+    <Content Include="Content\MyTemplate\js\components\circles.js" />
+    <Content Include="Content\MyTemplate\js\components\circles.min.js" />
+    <Content Include="Content\MyTemplate\js\components\counter.js" />
+    <Content Include="Content\MyTemplate\js\components\counter.min.js" />
+    <Content Include="Content\MyTemplate\js\components\equal-height.js" />
+    <Content Include="Content\MyTemplate\js\components\equal-height.min.js" />
+    <Content Include="Content\MyTemplate\js\components\faq.js" />
+    <Content Include="Content\MyTemplate\js\components\faq.min.js" />
+    <Content Include="Content\MyTemplate\js\components\google-map.js" />
+    <Content Include="Content\MyTemplate\js\components\google-map.min.js" />
+    <Content Include="Content\MyTemplate\js\components\google-map2.js" />
+    <Content Include="Content\MyTemplate\js\components\google-map2.min.js" />
+    <Content Include="Content\MyTemplate\js\components\header-sticky.js" />
+    <Content Include="Content\MyTemplate\js\components\header-sticky.min.js" />
+    <Content Include="Content\MyTemplate\js\components\magnific-popup.js" />
+    <Content Include="Content\MyTemplate\js\components\magnific-popup.min.js" />
+    <Content Include="Content\MyTemplate\js\components\masonry.js" />
+    <Content Include="Content\MyTemplate\js\components\masonry.min.js" />
+    <Content Include="Content\MyTemplate\js\components\parallax.js" />
+    <Content Include="Content\MyTemplate\js\components\parallax.min.js" />
+    <Content Include="Content\MyTemplate\js\components\portfolio-3-col.js" />
+    <Content Include="Content\MyTemplate\js\components\portfolio-3-col.min.js" />
+    <Content Include="Content\MyTemplate\js\components\portfolio-4-col-slider.js" />
+    <Content Include="Content\MyTemplate\js\components\portfolio-4-col-slider.min.js" />
+    <Content Include="Content\MyTemplate\js\components\progress-bar.js" />
+    <Content Include="Content\MyTemplate\js\components\progress-bar.min.js" />
+    <Content Include="Content\MyTemplate\js\components\scrollbar.js" />
+    <Content Include="Content\MyTemplate\js\components\scrollbar.min.js" />
+    <Content Include="Content\MyTemplate\js\components\swiper.js" />
+    <Content Include="Content\MyTemplate\js\components\swiper.min.js" />
+    <Content Include="Content\MyTemplate\js\components\tab.js" />
+    <Content Include="Content\MyTemplate\js\components\tab.min.js" />
+    <Content Include="Content\MyTemplate\js\components\wow.js" />
+    <Content Include="Content\MyTemplate\js\components\wow.min.js" />
+    <Content Include="Content\MyTemplate\js\custom.js" />
+    <Content Include="Content\MyTemplate\js\global.js" />
+    <Content Include="Content\MyTemplate\js\global.min.js" />
+    <Content Include="Content\MyTemplate\js\jquery-1.11.3.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\css\animate.min.css" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\css\bootstrap.min.css" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\css\font-awesome.min.css" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\css\style.css" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\bootstrap.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\common.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\jquery.localScroll.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\jquery.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\jquery.scrollTo.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\validate.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\assets\js\waypoints.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\layout\scripts\jquery.backtotop.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\layout\scripts\jquery.min.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\layout\scripts\jquery.mobilemenu.js" />
+    <Content Include="Content\MyTemplate\TestDepartments\layout\styles\fontawesome-4.5.0.min.css" />
+    <Content Include="Content\MyTemplate\TestDepartments\layout\styles\framework.css" />
+    <Content Include="Content\MyTemplate\TestDepartments\layout\styles\layout.css" />
+    <Content Include="Content\MyTemplate\under-construction.gif" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\js\npm.js" />
+    <Content Include="Content\MyTemplate\vendor\circles.min.js" />
+    <Content Include="Content\MyTemplate\vendor\counterup.min.js" />
+    <Content Include="Content\MyTemplate\vendor\cubeportfolio\css\cubeportfolio.min.css" />
+    <Content Include="Content\MyTemplate\vendor\cubeportfolio\img\cbp-sprite.png" />
+    <Content Include="Content\MyTemplate\vendor\cubeportfolio\js\jquery.cubeportfolio.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.appear.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.back-to-top.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.equal-height.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.masonry.pkgd.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.migrate.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.parallax.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.smooth-scroll.min.js" />
+    <Content Include="Content\MyTemplate\vendor\jquery.wow.min.js" />
+    <Content Include="Content\MyTemplate\vendor\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Content\MyTemplate\vendor\magnific-popup\magnific-popup.css" />
+    <Content Include="Content\MyTemplate\vendor\masonry\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\MyTemplate\vendor\masonry\jquery.masonry.pkgd.min.js" />
+    <Content Include="Content\MyTemplate\vendor\scrollbar\jquery.scrollbar.min.js" />
+    <Content Include="Content\MyTemplate\vendor\scrollbar\scrollbar.min.css" />
+    <Content Include="Content\MyTemplate\vendor\swiper\swiper.jquery.min.js" />
+    <Content Include="Content\MyTemplate\vendor\swiper\swiper.min.css" />
+    <Content Include="Content\MyTemplate\vendor\themify\fonts\themify.svg" />
+    <Content Include="Content\MyTemplate\vendor\themify\themify.css" />
+    <Content Include="Content\MyTemplate\vendor\vidbg.min.js" />
+    <Content Include="Content\MyTemplate\vendor\waypoint.min.js" />
+    <Content Include="Content\MyTemplate\vendor\wow.min.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style404\base.css" />
+    <Content Include="Content\style404\main.css" />
+    <Content Include="Content\style404\vendor.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Counter\doctor.png" />
+    <Content Include="Counter\equipment.png" />
+    <Content Include="Counter\icon.png" />
+    <Content Include="Counter\patient.png" />
+    <Content Include="DoctorImages\doctor.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\MyTemplate\dev-tools\package.json" />
+    <Content Include="Content\MyTemplate\scss\base\_base.scss" />
+    <Content Include="Content\MyTemplate\scss\base\_selection.scss" />
+    <Content Include="Content\MyTemplate\scss\components\_button.scss" />
+    <Content Include="Content\MyTemplate\scss\components\_clients.scss" />
+    <Content Include="Content\MyTemplate\scss\components\_faq.scss" />
+    <Content Include="Content\MyTemplate\scss\components\_form-input.scss" />
+    <Content Include="Content\MyTemplate\scss\components\_icon.scss" />
+    <Content Include="Content\MyTemplate\scss\global\global.scss" />
+    <Content Include="Content\MyTemplate\scss\global\global\_global-colors.scss" />
+    <Content Include="Content\MyTemplate\scss\global\global\_global-helpers.scss" />
+    <Content Include="Content\MyTemplate\scss\global\global\_global-responsive.scss" />
+    <Content Include="Content\MyTemplate\scss\global\global\_global-spacing.scss" />
+    <Content Include="Content\MyTemplate\scss\global\global\_global.scss" />
+    <Content Include="Content\MyTemplate\scss\global\_global.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_mockup.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_plan.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_process.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_promo-block.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_scroll-to-section.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_team.scss" />
+    <Content Include="Content\MyTemplate\scss\gui\_video.scss" />
+    <Content Include="Content\MyTemplate\scss\layout\_footer.scss" />
+    <Content Include="Content\MyTemplate\scss\layout\_header-v2.scss" />
+    <Content Include="Content\MyTemplate\scss\layout\_header.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_animation-delay.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_animation.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_backface-visibility.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_background.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_before-after.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_button.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_child.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_container.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_cubic-transition.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_display-center.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_font.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_gradients.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_horizontal-center-align.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_hover.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_keyframes.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_overlay.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_perspective.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_placeholder.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_position.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_rotate.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_selection.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_size.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_stroke-dashoffset.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_theme-icons.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_transform-origin.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_transform-scale.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_transition.scss" />
+    <Content Include="Content\MyTemplate\scss\mixins\_translate3d.scss" />
+    <Content Include="Content\MyTemplate\scss\style.scss" />
+    <Content Include="Content\MyTemplate\scss\theme\gold.scss" />
+    <Content Include="Content\MyTemplate\scss\theme\red.scss" />
+    <Content Include="Content\MyTemplate\scss\theme\theme\_gold.scss" />
+    <Content Include="Content\MyTemplate\scss\theme\theme\_red.scss" />
+    <Content Include="Content\MyTemplate\scss\theme\_gold.scss" />
+    <Content Include="Content\MyTemplate\scss\theme\_red.scss" />
+    <Content Include="Content\MyTemplate\scss\vendors\_back-to-top.scss" />
+    <Content Include="Content\MyTemplate\scss\vendors\_cubeportfolio.scss" />
+    <Content Include="Content\MyTemplate\scss\vendors\_gmap.scss" />
+    <Content Include="Content\MyTemplate\scss\vendors\_swiper.scss" />
+    <Content Include="Content\MyTemplate\scss\_mixins.scss" />
+    <Content Include="Content\MyTemplate\scss\_variables.scss" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\MyTemplate\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\MyTemplate\vendor\jquery.min.map" />
+    <Content Include="Content\MyTemplate\vendor\themify\fonts\themify.eot" />
+    <Content Include="Content\MyTemplate\vendor\themify\fonts\themify.ttf" />
+    <Content Include="Content\MyTemplate\vendor\themify\fonts\themify.woff" />
+    <Content Include="TestImages\default_testImage.jpg" />
+    <Content Include="Views\HeadOfClinic\ForgetPasswordToEmail.cshtml" />
+    <Content Include="Views\HeadOfClinic\Login.cshtml" />
+    <Content Include="Views\HeadOfClinic\LoginHere.cshtml" />
+    <Content Include="Views\Home\PasswordUpdated.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\Subhajit_Saha.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.autocomplete.pack.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Admin\AddDoctor.cshtml" />
+    <Content Include="Views\Admin\AddStaff.cshtml" />
+    <Content Include="Views\Admin\GetActiveStaff.cshtml" />
+    <Content Include="Views\Admin\GetInactiveStaff.cshtml" />
+    <Content Include="Views\Admin\UpdateStaffById.cshtml" />
+    <Content Include="Views\Shared\_myLayout3.cshtml" />
+    <Content Include="Views\Admin\AddTest.cshtml" />
+    <Content Include="Views\Admin\SearchStaff.cshtml" />
+    <Content Include="Views\Admin\AddAdmin.cshtml" />
+    <Content Include="Views\Admin\AdminAdded.cshtml" />
+    <Content Include="Views\Admin\UpdateDoctor.cshtml" />
+    <Content Include="Views\Admin\UpdateDoctorByID.cshtml" />
+    <Content Include="Views\Admin\UpdatePasswordAdmin.cshtml" />
+    <Content Include="Views\Home\AllTests.cshtml" />
+    <Content Include="Views\Home\DoctorsList.cshtml" />
+    <Content Include="Views\Admin\UpdateTest.cshtml" />
+    <Content Include="Views\Admin\UpdateTestByID.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\UpdateAdminProfile.cshtml" />
+    <Content Include="Views\Shared\_myLayout1.cshtml" />
+    <Content Include="Views\Shared\_mylayoutLogin.cshtml" />
+    <Content Include="Views\Home\GetDevelopers.cshtml" />
+    <Content Include="Views\Admin\Success.cshtml" />
+    <Content Include="Views\Admin\Fail.cshtml" />
+    <Content Include="Views\Home\SendFeedback1.cshtml" />
+    <Content Include="Views\Admin\ShowAllFeedback.cshtml" />
+    <Content Include="Views\Shared\_myLayout.cshtml" />
+    <Content Include="Views\Shared\_myLayoutFAQ.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_myLayout_Home.cshtml" />
+    <Content Include="Views\Admin\ViewAllDoctors.cshtml" />
+    <Content Include="Views\Home\SendFeedbackPartialView.cshtml" />
+    <Content Include="Views\Admin\NotUpdated.cshtml" />
+    <Content Include="Views\Home\ShowAllFeedbackToAll.cshtml" />
+    <Content Include="Views\Shared\_myLayoutWelcome.cshtml" />
+    <Content Include="Views\Admin\Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError.cshtml" />
+    <Content Include="Views\Admin\IntermediateUpdateTest.cshtml" />
+    <Content Include="Views\Admin\IntermediateDoctor1.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_home.cshtml" />
+    <Content Include="Views\Admin\GetAllStaffDuringAPeriod.cshtml" />
+    <Content Include="Views\Admin\NoStaff.cshtml" />
+    <Content Include="Views\Admin\ShowStaffByPeriod.cshtml" />
+    <Content Include="Views\Admin\ViewAllDepts.cshtml" />
+    <Content Include="Views\Admin\ViewallSubDept.cshtml" />
+    <Content Include="Views\Admin\AddWorkingDayofDoctor.cshtml" />
+    <Content Include="Views\ErrorPage\ErrorMessage.cshtml" />
+    <Content Include="Views\Admin\IntermediateDoctor.cshtml" />
+    <Content Include="Views\Home\ShowDocSchedule.cshtml" />
+    <Content Include="Views\Home\TestDepartments.cshtml" />
+    <Content Include="Views\Home\OurStore.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\MyTemplate\img\400x400\" />
+    <Folder Include="Content\MyTemplate\img\400x500\" />
+    <Folder Include="Content\MyTemplate\img\400x550\" />
+    <Folder Include="Content\MyTemplate\img\450x215\" />
+    <Folder Include="Content\MyTemplate\img\450x295\" />
+    <Folder Include="Content\MyTemplate\img\450x700\" />
+    <Folder Include="Content\MyTemplate\img\500x750\" />
+    <Folder Include="Content\MyTemplate\img\970x647\" />
+    <Folder Include="Content\MyTemplate\img\970x970\" />
+    <Folder Include="Content\MyTemplate\img\mockups\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>28501</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:28501/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

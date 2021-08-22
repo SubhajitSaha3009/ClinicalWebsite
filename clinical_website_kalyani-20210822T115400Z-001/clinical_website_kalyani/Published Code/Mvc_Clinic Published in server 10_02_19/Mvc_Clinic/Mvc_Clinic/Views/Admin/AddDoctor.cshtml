@@ -1,0 +1,202 @@
+﻿@model Mvc_Clinic.Models.DoctorModel
+
+@{
+    ViewBag.Title = "AddDoctor";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<div class="jumbotron" style="background-color:#f5fffa">
+
+    @using (Html.BeginForm("AddDoctor", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <center>
+                <div style="height:25px;">
+
+                </div>
+                <legend><h2><b>ENTER DOCTOR DETAILS</b></h2></legend>
+                <div style="height:25px;">
+
+                </div>
+                <table style="width:60%" align="center">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.doctorName, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorName)*@
+                                @Html.TextBoxFor(model => model.doctorName, new { @class = "form-control", placeholder = "*Doctor Name" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;"> @Html.ValidationMessageFor(model => model.doctorName)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.doctorDesignation, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorDesignation)*@
+                                @Html.TextBoxFor(model => model.doctorDesignation, new { @class = "form-control", placeholder = "e.g. Attached with Apollo Gleneagles Hospitals(Kol.)" })
+
+                            </div>
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.doctorDesignation)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.doctorSpeciality, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorSpeciality)*@
+                                @Html.TextBoxFor(model => model.doctorSpeciality, new { @class = "form-control", placeholder = "e.g. Consultant physician" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;"> @Html.ValidationMessageFor(model => model.doctorSpeciality)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.doctorDegree, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorDegree)*@
+                                @Html.TextBoxFor(model => model.doctorDegree, new { @class = "form-control", placeholder = "e.g. M.B.B.S. (Cal)" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.doctorDegree)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.imageAddress, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="file" name="imageAddress" class="form-control" />
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            <b style="color:red;"> @Html.ValidationMessageFor(model => model.imageAddress)</b>
+                        </td>
+                       
+                    </tr>
+                    @if ((string)ViewBag.Error != "" || (String)ViewBag.errmsg!="")
+                    {
+                        <tr> <td></td>  <td style="color:red"><b>@ViewBag.Error @ViewBag.errmsg</b></td></tr>
+                        <tr><td> <div style="height:10px"></div></td></tr>
+                    }
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.workingTiming, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.workingTiming)*@
+                                @Html.TextBoxFor(model => model.workingTiming, new { @class = "form-control", placeholder = "e.g. Every Sunday from 7 pm" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;"> @Html.ValidationMessageFor(model => model.workingTiming)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.numberForAppointment, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.numberForAppointment)*@
+                                @Html.TextBoxFor(model => model.numberForAppointment, new { @class = "form-control", placeholder = "Enter 10 digit mobile number" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;"> @Html.ValidationMessageFor(model => model.numberForAppointment)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.alternateNumberForAppointment, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.alternateNumberForAppointment)*@
+                                @Html.TextBoxFor(model => model.alternateNumberForAppointment, new { @class = "form-control", placeholder = "Enter 10 digit mobile number" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;"> @Html.ValidationMessageFor(model => model.alternateNumberForAppointment)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.LnumberForAppointment, new { @style = "font-size:18px;" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.LnumberForAppointment)*@
+                                @Html.TextBoxFor(model => model.LnumberForAppointment, new { @class = "form-control", placeholder = "Enter landline number" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.LnumberForAppointment)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p>
+                                <input type="submit" class="btn btn-primary" value="Preview" style="width:200px; height:50px;" />
+                            </p>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        
+                        
+                    </tr>
+                </table>
+            </center>
+
+        </fieldset>
+    }
+    </div>

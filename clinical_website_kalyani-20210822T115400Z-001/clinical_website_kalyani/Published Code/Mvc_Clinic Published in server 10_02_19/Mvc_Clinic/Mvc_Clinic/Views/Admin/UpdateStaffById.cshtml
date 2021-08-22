@@ -1,0 +1,310 @@
+﻿@model Mvc_Clinic.Models.StaffModel
+
+@{
+    ViewBag.Title = "UpdateStaffById";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#dob").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+
+
+    $(document).ready(function () {
+        $('#StLeaDate').change(function () {
+            var startdate = $('#StJoiDate').val();
+            var leavedate = $('#StLeaDate').val();
+            var status = $('#StaffStatus').val();
+            if (status == 'Active')
+            {
+                alert('Avtive staff can not have a leave Date.');
+                $('#StLeaDate').val("");
+            }
+
+            else if (startdate != '' && leavedate != '') {
+                if (Date.parse(startdate) > Date.parse(leavedate)) {
+                    alert('Leave date can not be lesser than Start date.');
+                    $('#StLeaDate').val("");
+                }
+            }
+        });
+    });
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#StJoiDate").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#StLeaDate").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+
+
+
+
+
+
+
+   
+
+
+    <div class="jumbotron" style="background-color:#f5fffa;">
+
+        @using (Html.BeginForm())
+    {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <center>
+               
+                <div style="height:30px;margin-bottom:12px;"><i style="color:red; font-size:22px">@ViewBag.Error</i></div>
+                
+                <fieldset>
+                    <div style="height:25px;">
+
+                    </div>
+                    <legend><h2><b> STAFF DETAILS</b></h2></legend>
+                    <div style="overflow-x:scroll;width:100%">
+
+                        <table align="center" style="width:80%;overflow-x:scroll">
+
+
+
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Staffid, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.TextBox("Staffid", (String)@ViewBag.StId, new { @Class = "form-control", @readonly = "readonly" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.Staffid)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffName, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.TextBox("StaffName", (String)@ViewBag.StName, new { @Class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StaffName)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffGender, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        Male @Html.RadioButton("StaffGender", "Male")
+                                        Female @Html.RadioButton("StaffGender", "Female")
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StaffGender)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.dob, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.TextBox("dob", (string)ViewBag.Stdob, new { @readonly = "readonly", @class = "form-control ", @style = "color:black" })
+                                        @*@Html.TextBox("dob", (String)@ViewBag.Stdob, new { @Class = "form-control" })*@
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.dob)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffAddress, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.TextArea("StaffAddress", (String)@ViewBag.StAddress, new { @Class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StaffAddress)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffMobileNo, new { @style = "font-size:18px;" })
+                                    </div>
+
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.TextBox("StaffMobileNo", (String)@ViewBag.StMobNo, new { @Class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StaffMobileNo)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffEmailID, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.TextBox("StaffEmailID", (String)@ViewBag.StEmail, new { @Class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StaffEmailID)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffStatus, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @Html.DropDownList("StaffStatus", ViewBag.Status as List<SelectListItem>, new { @Class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StaffStatus)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StJoiDate, new { @style = "font-size:18px;" })
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        @*@Html.TextBox("StJoiDate", (String)@ViewBag.StJoiDt, new { @Class = "form-control" })*@
+                                        @Html.TextBox("StJoiDate", (string)ViewBag.StJoiDt, new { @readonly = "readonly", @class = "form-control ", @style = "color:black" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StJoiDate)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StLeaDate, new { @style = "font-size:18px;" })
+                                    </div>
+
+
+                                </td>
+                                <td>
+                                    <div class="form-group">
+
+                                        @Html.TextBox("StLeaDate", (string)ViewBag.StLeaDt, new { @readonly = "readonly", @class = "form-control ", @style = "color:black" })
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <b style="color:red">@Html.ValidationMessageFor(model => model.StLeaDate)</b>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Update" class="btn btn-primary" />
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </fieldset>
+                </center>
+                }
+
+        </div>

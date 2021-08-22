@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- Begin Head -->
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Error :: Mitali Memorial Poly Clinic</title>
+    <meta name="keywords" content="Mitali Memorial, Mitali Memorial Poly Clinic,Clinic in Kalyani, Kalyani Clinic, Clinic, Poly Clinic, Kalyani, Clinic in West Bengal, One of the best clinic in Kalyani, Souvik Saha, Atanu Roy, Subhajit Saha " />
+    <meta name="description" content="Mitali Memorial Poly Clinic is West Bengal's one of the best poly clinics. Our group of more than 40 specialist doctors and 30 staffs give you the best of modern healthcare to ensure you stay healthy. We provide quality health care services with facilities for diagnostics, health checks & more, all under one roof.">
+    <meta name="author" content="Souvik Saha, Atanu Roy, Subhajit Saha">
+    <meta name="author" content="Subhajit Saha" />
+    <meta name="author" content="Souvik Saha" />
+    <meta name="author" content="Atanu roy" />
+    @RenderSection("metatags", required: false)
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+
+
+    <!-- Vendor Styles -->
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/themify/themify.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme Styles -->
+    <link href="@Url.Content("~/Content/MyTemplate/")css/style.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")css/global/global.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/MyTemplate/")img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="@Url.Content("~/Content/MyTemplate/")img/apple-touch-icon.png">
+    <link rel="icon" href="~/Content/MyTemplate/img/Logo/logo.png">
+
+</head>
+<!-- End Head -->
+<!-- Body -->
+<body>
+
+    <!--========== HEADER V2 ==========-->
+    <header class="navbar-fixed-top s-header-v2 js__header-sticky">
+        <!-- Navbar -->
+        <nav class="s-header-v2__navbar">
+            <div class="container g-display-table--lg">
+                <!-- Navbar Row -->
+                <div class="s-header-v2__navbar-row">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="s-header-v2__navbar-col">
+                        <button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                            <span class="s-header-v2__toggle-icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
+                        <!-- Logo -->
+                        <div class="s-header-v2__logo">
+                            <a href="@Url.Action("Index","Admin")" class="s-header-v2__logo-link">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" @*src="@Url.Content("~/Content/MyTemplate/")img/logo.png"*@ alt="Clinic Logo">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" @*src="@Url.Content("~/Content/MyTemplate/")img/logo-dark.png"*@ alt="Clinic Logo">
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+                            <ul class="s-header-v2__nav">
+                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
+                                    <a class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Doctors <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
+                                        <li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("Add Doctor", "AddDoctor", "Admin")</a></li>
+                                        <li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("Show & update doctors", "ViewAllDoctors", "Admin")</a></li>
+                                        <li><a href="#" class="s-header-v2__dropdown-menu-link -is-active">Clinic</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End Home -->
+                                <!-- Pages -->
+                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
+                                    <a href="javascript:void(0);" class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staffs <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
+                                        <li><a href="#" class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Add Staff", "AddStaff", "Admin")</a></li>
+                                        <li><a href="#" class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Update Active Staff", "GetActiveStaff", "Admin")</a></li>
+                                        <li><a href="#" class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Update Inactive Staff", "GetInactiveStaff", "Admin")</a></li>
+                                        <li><a href="#" class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Search Staff", "GetAllStaffDuringAPeriod", "Admin")</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End Pages -->
+                                <!--Test-->
+                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
+                                    <a class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Test<span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
+                                        <li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("Add Test", "AddTest", "Admin")</a></li>
+
+                                        <li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("Show & update test", "UpdateTestByID", "Admin")</a></li>
+                                        <li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("All Test Department", "ViewAllDepts", "Admin")</a></li>
+
+                                    </ul>
+                                </li>
+                                <!--End Test-->
+                                <!--Feedback-->
+                                <li class="s-header-v2__nav-item"> @Html.ActionLink("Feedback", "ShowAllFeedback", "Admin", new { @class = "s-header-v2__nav-link s-header-v2__nav-link--dark" })</li>
+                                <!--End Feedback-->
+                                <!--My Profile-->
+                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
+                                    <a class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile<span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
+                                        @*<li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("Feedback", "ShowAllFeedback", "Admin")</a></li>*@
+
+                                        <li><a class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Add Admin", "AddAdmin", "Admin")</a></li>
+                                        <li><a class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Edit Profile", "UpdateAdminProfile", "Admin")</a></li>
+                                        <li><a class="s-header-v2__dropdown-menu-link">@Html.ActionLink("Update Password", "UpdatePasswordAdmin", "Admin")</a></li>
+                                        <li><a class="s-header-v2__dropdown-menu-link"> @Html.ActionLink("Logout", "Logout", "Admin")</a></li>
+
+                                    </ul>
+                                </li>
+                                <!--End My Profile-->
+                            </ul>
+                        </div>
+                        <!-- End Nav Menu -->
+                    </div>
+                </div>
+                <!-- End Navbar Row -->
+            </div>
+        </nav>
+        <!-- End Navbar -->
+    </header>
+    <!--========== END HEADER V2 ==========-->
+    @RenderBody()
+    <footer class="g-bg-color--blueviolet">
+
+        <!-- Copyright -->
+        <div class="container g-padding-y-20--xs">
+            <div class="row">
+                <div>
+                    <p class="pull-left g-color--white-opacity-light">Copyright © 2018 <a href="@Url.Action("Index","Admin")"> Mitali Memorial Poly Clinic,</a> All Rights Reserved.</p>
+                    <p class="pull-right"><a target="_blank" class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light" href="@Url.Action( "GetDevelopers", "Home")">Developers Group</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright -->
+    </footer>
+
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+    <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!-- Vendor -->
+    @*<script src="~/Content/MyTemplate/js/jquery-1.11.3.min.js"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.min.js"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.migrate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.back-to-top.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/scrollbar/jquery.scrollbar.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/swiper/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/waypoint.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/counterup.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.parallax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsXUGTFS09pLVdsYEE9YrO2y4IAncAO2U"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Template/")vendor/jquery.wow.min.js"></script>
+
+    <!-- General Components and Settings -->
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/global.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/header-sticky.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/scrollbar.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/magnific-popup.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/swiper.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/counter.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/portfolio-3-col.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/parallax.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/google-map.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/wow.min.js"></script>
+    @*<script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <link href="~/Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+        <script src="~/Scripts/jquery-ui.js"></script>
+        <script src="~/Scripts/jquery-ui.min.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+
+
+    <!--========== END JAVASCRIPTS ==========-->
+
+
+</body>
+
+</html>

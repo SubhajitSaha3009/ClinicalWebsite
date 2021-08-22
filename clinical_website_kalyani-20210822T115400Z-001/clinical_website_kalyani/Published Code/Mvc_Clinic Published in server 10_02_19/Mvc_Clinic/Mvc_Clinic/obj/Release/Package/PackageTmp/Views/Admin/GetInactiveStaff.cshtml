@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Mvc_Clinic.Models.StaffModel>
+
+@{
+    ViewBag.Title = "GetActiveStaff";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+<div class="jumbotron" style="background-color:#f5fffa">
+    <center style="margin-top:50px">
+        <h2 style="margin-bottom:25px">Inactive Staff List</h2>
+        <div style="overflow-x:scroll;width:100%">
+            <table class="table table-hover table-bordered" style="width:60%">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Staffid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StaffName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StaffGender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.dob)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StaffAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StaffMobileNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StaffEmailID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StaffStatus)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StJoiDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StLeaDate)
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Staffid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffGender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dob)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffMobileNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffEmailID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StJoiDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StLeaDate)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Update", "UpdateStaffById", new { id = item.Staffid })
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+</center>
+</div>

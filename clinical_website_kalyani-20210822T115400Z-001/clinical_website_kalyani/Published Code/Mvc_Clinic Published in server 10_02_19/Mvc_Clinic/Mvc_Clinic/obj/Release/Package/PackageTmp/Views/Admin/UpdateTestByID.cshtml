@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Mvc_Clinic.Models.AddTestModel>
+
+@{
+    ViewBag.Title = "UpdateTestByID";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+<center>
+    <div style="height:25px;"> </div>
+    <i style="font-size:24px; color:green">@ViewBag.delmsg</i>
+    <i style="font-size:24px; color:red">@ViewBag.delerrmsg</i>
+    <div style="height:15px;"> </div>
+</center>
+<div style="height:95px; padding-top:35px;">
+    
+    <h2 class="gap-50" style="text-align:center">UPDATE TEST</h2>
+</div>
+<div class="container gap-30">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <table align="center" class="table table-hover table-bordered" style="width:70%;text-align:center">
+                <tr>
+                    <th style="text-align:center">
+                        Test Id
+                    </th>
+                    <th style="text-align:center">
+                        Test Name
+                    </th>
+                    <th style="text-align:center">
+                        Test Schedule
+                    </th>
+                    <th style="text-align:center">
+                        Option
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TestId@*, new { @class="form-control"}*@)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TestName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TestSchedule)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Update", "UpdateTest", new { id = item.TestId })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteTest", new { id = item.TestId }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+
+    
+    <div style="height:200px">
+
+    </div>
+

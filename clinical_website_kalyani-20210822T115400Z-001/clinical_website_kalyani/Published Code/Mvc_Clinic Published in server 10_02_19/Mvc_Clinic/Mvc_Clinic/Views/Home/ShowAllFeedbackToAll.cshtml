@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Mvc_Clinic.Models.FeedbackModel>
+
+@{
+    ViewBag.Title = "Feedbacks :: Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_myLayout_Home.cshtml";
+}
+
+
+<div class="g-padding-y-40--xs g-padding-y-50--sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="row">
+                                <img class="g-width-70--xs g-height-70--xs g-hor-border-4__solid--white g-box-shadow__primary-v1 g-radius--circle g-margin-b-30--xs" src="~/Content/feedback_contact.png" alt="Image">
+                            </div>
+                            <div class="row">
+                                <h4 class="g-font-size-12--xs g-font-size-14--sm g-font-weight--400 g-font-family--primary">@Html.DisplayFor(modelItem => item.name)</h4>
+                            </div>
+                            <div class="row">
+                                <div class="g-margin-b-40--xs">
+                                    <p class="g-font-size-15--xs g-font-size-18--sm g-font-family--playfair g-color--heading"><i>"@Html.DisplayFor(modelItem => item.feedbackMessage). "</i></p>
+                                </div>
+                            </div>
+                            <div class="g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-30--xs"></div>
+
+                        }
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

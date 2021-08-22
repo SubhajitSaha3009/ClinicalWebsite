@@ -1,0 +1,72 @@
+﻿@model Mvc_Clinic.Models.LoginModel
+
+
+@{
+    ViewBag.Title = "LOGIN :: Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_mylayoutLogin.cshtml";
+}
+
+
+<div class="g-fullheight--md js__parallax-window" style="background: url(@Url.Content("~/Content/MyTemplate/")img/1920x1080/01.jpg) 50% 0 no-repeat fixed;">
+    <div class="g-ver-center--md g-text-center--xs g-ver-center--md g-padding-y-150--xs g-padding-y-0--md">
+        <div class="container">
+            <center>
+                <div class="jumbotron" style="background:rgba(0,0,0,.5);width:60%">
+                    <center> <h2 style="color:white"> Login Here</h2> </center>
+
+                    @using (Html.BeginForm("Login", "HeadOfClinic", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div>
+                            <center style="font-size:22px;color:red;">  @ViewBag.errmsg</center>
+                        </div>
+
+                        <fieldset>
+                            <table align="center" style="width:50%">
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            @*@Html.EditorFor(model => model.LogInId)*@
+                                            @Html.TextBoxFor(model => model.LogInId, new { @class = "form-control", placeholder = "*Login ID" })
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(model => model.LogInId)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "*Password" })
+
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="submit" class="btn-success">Submit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.ActionLink("Forget Password", "ForgetPasswordToEmail", "HeadOfClinic")</td>
+                                </tr>
+
+                            </table>
+                        </fieldset>
+
+                    }
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+
+

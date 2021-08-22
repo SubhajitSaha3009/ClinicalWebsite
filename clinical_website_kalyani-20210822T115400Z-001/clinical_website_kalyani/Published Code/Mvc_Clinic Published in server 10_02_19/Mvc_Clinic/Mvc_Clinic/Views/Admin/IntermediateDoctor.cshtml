@@ -1,0 +1,191 @@
+﻿@model Mvc_Clinic.Models.DoctorModel
+
+@{
+    ViewBag.Title = "IntermediateDoctor";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<div style="height:50px;">
+
+</div>
+
+
+<!-- Preview in DoctorsList Page Begin  -->
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-12 jumbotron">
+                <div class="row DarkShadow" style="border:gray 1px solid;background-color:white;">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <img class="Pic img-thumbnail" src="@ViewBag.img" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg'" style="height:230px" />
+                    </div>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <div class="row g-margin-b-0--xs">
+                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="row" style="margin-top:9px;margin-left:10px">
+                                    <h4 class="g-margin-b-0--xs"><b style="color:darkorange">@ViewBag.dName</b></h4>
+                                </div>
+                                <div class="row g-margin-b-5--xs">
+                                    <div class="col-xs-8" style="margin-left:10px">
+                                        <i class="fa fa-hospital-o" style="color:green;font-size:17px"></i>&nbsp;&nbsp;<b class="g-font-weight--700 g-font-size-15--xs" style="color: #71E494; ">@ViewBag.dDesignation</b>
+                                    </div>
+                                </div>
+                                <table class="table table-stripped g-margin-b-4--xs" style="width:90%;">
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-stethoscope" style="color:green; font-size: 17px; "></i>&nbsp;&nbsp;<b class="g-font-weight--500 g-font-size-13--xs">@ViewBag.dSpecialitySorted</b>
+                                        </td>
+                                        <td>
+                                            <i class="fa fa-check-circle" style="color:green;">&nbsp;</i><i>Verified Doctor</i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-graduation-cap" style="color:green; font-size: 17px; "></i>&nbsp;&nbsp;<b class="g-font-weight--500 g-font-size-13--xs">@ViewBag.degreeSorted</b>
+                                        </td>
+                                        <td>
+                                            <i class="fa fa-user-plus" style="color:green">&nbsp;</i><i>Accepting New Patients</i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            @*<i class="fa fa-universal-access" style="color:green">&nbsp;</i><i>Grants Access To Records</i>*@
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preview in DoctorsList Page End  -->
+<!-- Preview in ShowDocSchedule Page Begin  -->
+
+<div class="container-fluid " style="background:url('../../Content/MyTemplate/img/doctor-banner-edited.jpg');background-repeat:no-repeat;background-color:#C8DFFF;">
+
+
+    <div class="col-sm-6 col-sm-offset-3 col-xs-12 g-margin-t-60--xs g-margin-b-60--xs g-padding-y-30--xs g-bg-color--white-opacity">
+        <div class="row">
+            <center>
+                <h2 style="padding-bottom:0px;font-family:Cooper"><i class="g-font-weight--700">@ViewBag.dName</i></h2>
+                <div style="margin-bottom:10px; width:40%" class="g-hor-divider__solid--heading-light"></div>
+            </center>
+        </div>
+        <div class="row visible-xs">
+            <div class="col-xs-8 col-xs-offset-2">
+                <img class="img-thumbnail" style="width:100%;height:100%" src="@ViewBag.img" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg' " />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <table class="g-margin-l-25--xs g-margin-t-15--xs" style="width:100%">
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-stethoscope"></i>
+                        </td>
+                        <td class="g-font-weight--700 g-font-size-16--xs">
+                            &nbsp;@ViewBag.dSpeciality
+                        </td>
+                    </tr>
+                    <tr class="g-height-10--xs"></tr>
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-hospital-o"></i>
+                        </td>
+                        <td class="g-font-weight--500 g-font-size-15--xs">
+                            &nbsp;@ViewBag.dDesignation
+                        </td>
+                    </tr>
+                    <tr class="g-height-5--xs"></tr>
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-graduation-cap"></i>
+                        </td>
+                        <td class="g-font-weight--500 g-font-size-15--xs">
+                            &nbsp;@ViewBag.degree
+                        </td>
+                    </tr>
+                    <tr class="g-height-5--xs"></tr>
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-calendar"></i>
+                        </td>
+                        <td class="g-font-weight--500 g-font-size-15--xs">
+                            &nbsp;@ViewBag.workingTime
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="col-sm-5 col-sm-offset-1 col-xs-10 hidden-xs">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <img class="img-thumbnail" style="width:100%;height:100%" src="@ViewBag.img" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg' " />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 g-margin-t-10--xs">
+                @*<i style="color:green;font-size:20px;">Note:</i>*@ <div style="color:darkmagenta;font-size:16px;">Contact number for appointment is: @ViewBag.numAppoin</div>
+                @if (@ViewBag.Lnum != null)
+                {
+                    <i style="color:darkmagenta;font-size:16px;">Landline number for appointment is: @ViewBag.Lnum</i>
+                }
+            </div>
+            <div class="col-sm-5 col-sm-offset-1 g-margin-t-10--xs">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <center>
+                            <p class=" g-font-weight--700 g-font-size-18--xs" style="color:#a5d549">
+                                Sharing is Caring
+                            </p>
+                        </center>
+                    </div>
+                </div>
+                <div class="row g-margin-r-30--xs" style="float:right">
+                    <div class="fb-share-button " data-href="" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="#"></a></div>
+                    <a target="_blank" class="fa fa-twitter g-margin-l-5--xs" style="color:#a5d549" href="" data-size="large"></a>
+                    <a target="_blank" class="fa fa-google-plus g-margin-l-5--xs" style="color:#a5d549" href=""></a>
+                    <a target="_blank" class="fa fa-linkedin g-margin-l-5--xs" style="color:#a5d549" href="#"></a>
+                    <a target="_blank" class="fa fa-whatsapp g-margin-l-5--xs" style="color:#a5d549" href="#" data-action="share/whatsapp/share"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Preview in ShowDocSchedule Page End  -->
+
+
+<div style="height:40px"></div>
+<center>
+    <a href="javascript:history.go(-1)" class="btn btn-primary">Edit</a>
+
+    @if ((string)ViewBag.StatusDoc == "Add")
+    {
+        <a href="@Url.Action("FinalAddDocSubmission")" class="btn btn-success">Confirm Submission</a>
+    }
+    else
+    {
+        <a href="@Url.Action("FinalUpdateDocSubmission")" class="btn btn-success">Confirm Submission</a>
+
+    }
+</center>
+<div style="height:40px"></div>
+

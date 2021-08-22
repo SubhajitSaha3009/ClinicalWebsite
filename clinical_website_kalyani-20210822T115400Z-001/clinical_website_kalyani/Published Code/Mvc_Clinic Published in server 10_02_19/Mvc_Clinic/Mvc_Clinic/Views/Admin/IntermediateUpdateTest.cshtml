@@ -1,0 +1,96 @@
+﻿@model Mvc_Clinic.Models.AddTestModel
+
+@{
+    ViewBag.Title = "IntermediateUpdateTest";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('.collapse').on('shown.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+        })
+    });
+</script>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="container g-padding-y-100--lg">
+        <div class="row">
+            <legend>
+                <h3 class="g-font-size-50--lg g-text-center--lg g-text-center--xs">
+                    Review The Test Before Confirm
+                </h3>
+            </legend>
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                
+                    <div id="according" class="panel-group g-margin-b-5--lg g-margin-b-5--xs">
+                        <div class="panel g-bg-color--sky-light">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    
+                                    <a href=#test data-toggle="collapse" data-parent="#according">
+                                        <div class="row">
+                                            @{string p = ViewBag.img;}
+                                            @if (ViewBag.img == null){ViewBag.img = "";}
+                                            <div class="col-sm-2"><img src="@ViewBag.img" onerror="this.onerror = null; this.src = '/TestImages/default_testImage.jpg' " class="img-responsive img-thumbnail" style="width: 45px;height: 45px"></div>
+                                            @{ string temp = ViewBag.img;}
+                                            <div class="col-sm-2">@ViewBag.tName</div>
+                                            <div class="col-sm-5">Test Timings: &nbsp; @ViewBag.testSchd</div>
+                                            <div class="col-sm-3" style="text-align:right;"><span class="glyphicon glyphicon-menu-down"></span></div>
+
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id=test class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <img src="@ViewBag.img" onerror="this.onerror = null; this.src = '/TestImages/default_testImage.jpg' " class="img-responsive img-thumbnail" style="width: 100%;height: 100%">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="row g-font-size-34--lg g-font-size-30--xs g-margin-l-10--lg g-margin-l-10--xs" style="color:darkkhaki">
+                                                <b><i>Test Description</i></b>
+                                            </div>
+                                            <div class="row  g-font-size-16--lg g-font-size-14--xs g-margin-l-10--lg g-margin-l-10--xs">
+                                                @ViewBag.tDescription
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+    
+    @*<a href="@Url.Action("ShowDocSchedule", new { doctorID = item.doctorID})" class="btn btn-primary">Get Doctor Schedule </a>*@
+                <center>
+                    <a href="javascript:history.go(-1)" class="btn btn-primary">Edit</a>
+
+                    @if ((string)ViewBag.Status == "Add")
+                    {
+                        <a href="@Url.Action("FinalAddTestSubmission")" class="btn btn-success">Confirm Submission</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("FinalUpdateTestSubmission")" class="btn btn-success">Confirm Submission</a>
+
+                    }
+                </center>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+

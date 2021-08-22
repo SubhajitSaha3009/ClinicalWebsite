@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Our Store :: Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_myLayout_Home.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('.collapse').on('shown.bs.collapse',function(){
+            $(this).parent().find('.glyphicon-plus').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-minus').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+        })
+    });
+</script>
+
+<div class="container g-margin-t-20--xs g-margin-b-20--xs g-padding-y-20--xs g-radius--10" style="background-color:#57789F">
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">
+            <img style="width:100%;height:100%" class="thumbnail" src="~/Content/MyTemplate/img/970x647/01.jpg" />
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <img style="width:100%;height:100%" class="thumbnail" src="~/Content/MyTemplate/img/970x647/01.jpg" />
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <img style="width:100%;height:100%" class="thumbnail" src="~/Content/MyTemplate/img/970x647/01.jpg" />
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <img style="width:100%;height:100%" class="thumbnail" src="~/Content/MyTemplate/img/970x647/01.jpg" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Start Departments Accordion -->
+            <div class="panel-group custom-panel" id="according">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#according" href="#collapseOne">
+                                    Performing well against most of the key standards
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p> Kalyani Clinic is meeting every single individual standard and performing admirably since 19.. against the majority of the key guidelines – that is those identifying with hazard administration, the management of the drug store group, what's more, the wellbeing and viability services and medicines management, assessing the context of the pharmacy.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                @*<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#according" href="#collapseTwo">
+                                Delivering services that were achieving good outcomes for patients
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Our pharmacy is providing healthcare services which are supporting good outcomes for patients in terms of the safety and quality of services they receive. Patients are receiving the right medication for their condition when they need it and the appropriate information for effective treatment. Any patients receiving advice on their general state of health, or support to self-manage their condition, are able to make more appropriate and informed choices as a result.
+                            </p>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#according" href="#collapseThree">
+                                Well-led and managed and the pharmacy’s systems, procedures and processes were applied consistently
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Our pharmacy has strong governance arrangements and are well-led and managed.
+                                Systems, procedures and processes for identifying, managing and reviewing risks are consistently complied with.
+                                This provides a high level of assurance with regard to the safety and quality of services our patients receive.
+                                We conducte continuous and systematic reviews of the key risks for the pharmacy, given our context; in particular,
+                                those relating to medicines management and the premises. We also regularly reviewe the skills of the pharmacy team, the operating procedures and compliance with record keeping requirements in place for the safe provision of services
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#according" href="#collapseFour">
+                                Empowering their well-trained staff
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Our staff are well-trained and equipped with the skills and competences to deliver safe and effective services.
+                                Our working culture supports open and honest behaviour by staff who are encouraged to share their concerns about practice within the pharmacy and they routinely contributs ideas for improvements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#according" href="#collapseFive">
+                                Responsive to patient needs
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                Our pharmacy services are focused on and responsive to the needs of their patients.
+                                Feedback is actively encouraged from patients and used to improve patient experience and reduce risks. The pharmacy team is live to changing needs and demands for its services and makes changes as appropriate to meet these.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

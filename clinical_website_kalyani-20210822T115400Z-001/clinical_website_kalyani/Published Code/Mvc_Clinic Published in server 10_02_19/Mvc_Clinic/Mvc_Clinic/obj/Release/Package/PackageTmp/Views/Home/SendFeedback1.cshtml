@@ -1,0 +1,91 @@
+﻿@model Mvc_Clinic.Models.FeedbackModel
+
+@{
+    ViewBag.Title = "SendFeedback";
+    Layout = "~/Views/Shared/_myLayout1.cshtml";
+}
+
+
+
+
+
+
+@*<script>
+   $.ajax({
+       url: "Home/SendFeedback",
+      method: "POST",
+      data: getMyData(),
+
+      success: function(json) {
+         if (json.Success) {
+            alert("Wow, everything was fine!");
+         } else {
+            alert(json.Message);
+         }
+      },
+
+      // This will be trigered whenever your ajax call fails (broken ISP link, etc).
+      error: function() {
+         alert("Something went wrong. Maybe the server is offline?");
+      }
+   });
+</script>*@
+
+
+<script>
+
+    function AddAvailabilitySuccess()
+    {
+
+        alert("Record updated successfully!");
+
+    }
+</script>
+
+
+
+
+    <h2>SendFeedback</h2>
+    <center>
+        @using (Ajax.BeginForm("GetDevelopers", "Home", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.InsertBefore, UpdateTargetId = "show", OnSuccess = "AddAvailabilitySuccess" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+                <legend>FeedbackModel</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.name)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.name)
+                    @Html.ValidationMessageFor(model => model.name)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.contactNumber)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.contactNumber)
+                    @Html.ValidationMessageFor(model => model.contactNumber)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.feedbackMessage)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.feedbackMessage)
+                    @Html.ValidationMessageFor(model => model.feedbackMessage)
+                </div>
+
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+                @ViewBag.msg
+            <div id="show"></div>
+            </fieldset>
+    }
+    </center>
+
+

@@ -1,0 +1,131 @@
+﻿@model Mvc_Clinic.Models.AdminModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+
+<div class="jumbotron" style="background-color:#f5fffa">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+        <center>
+            <div style="height:15px;"> </div>
+            <i style="font-size:24px; color:green">@ViewBag.updmsg</i>
+            <div style="height:25px;"> </div>
+        </center>
+
+        <fieldset>
+            <center>
+                <legend><h2><b>WELCOME TO M.M.POLY CLINIC</b></h2></legend>
+                <div class="visible-xs" style="height:150px;width:170px;margin-bottom:30px;">
+                    <img style="height:100%;width:100%;" src="@ViewBag.ImageAddress" onerror="this.onerror = null; this.src = '/AdminImages/admin.jpg'  " />
+                </div>
+            </center>
+            <table align="center" style="width:70%">
+
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.adminName, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBox("adminName", (string)ViewBag.name, new { @readonly = "readonly", @class = "form-control" })
+
+                        </div>
+                    </td>
+                    @*<td style="color:red;">
+                    @Html.ValidationMessageFor(model => model.adminName)
+                </td>*@
+
+                    <td style="padding-left:30px;" rowspan="3">
+
+                    <div class="hidden-xs" style="height:150px;width:170px">
+                        <img style="height:100%;width:100%;" src="@ViewBag.ImageAddress" onerror="this.onerror = null; this.src = '/AdminImages/admin.jpg'  " />
+                    </div>
+
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.adminGender, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.EditorFor(model => model.adminGender)*@
+                            @Html.TextBox("adminName", (string)ViewBag.adminGender, new { @readonly = "readonly", @class = "form-control" })
+                            @*Male @Html.RadioButton("adminGender", "Male")
+                        Female @Html.RadioButton("adminGender", "Female")*@
+
+                        </div>
+                    </td>
+                    @*<td style="color:red;">
+                    @Html.ValidationMessageFor(model => model.adminGender)
+                </td>*@
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.adminDoB, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.TextBoxFor(model => model.adminDoB, new { @readonly = "readonly", @id = "adminDoB" })*@
+                            @*@Html.TextBox("adminDoB", (string)ViewBag.adminDoB, new { @class = "form-control ", placeholder = "dd/mm/yyyy", @type = "date" })*@
+                            @*@Html.TextBox("adminDoB", (string)ViewBag.adminDoB, new { @class = "form-control ", placeholder = "dd-mm-yyyy" })*@
+                            @Html.TextBox("adminDoB", (string)ViewBag.adminDoB, new {@readonly = "readonly", @class = "form-control ", @style = "color:black" })
+                        </div>
+                    </td>
+                    @*<td style="color:red;">
+                    @Html.ValidationMessageFor(model => model.adminDoB)
+                </td>*@
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.adminEmailID, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBox("adminEmailID", (string)ViewBag.email, new { @readonly = "readonly", @class = "form-control" })
+
+                        </div>
+                    </td>
+                    @*<td style="color:red;">
+                    @Html.ValidationMessageFor(model => model.adminEmailID)
+                </td>*@
+                </tr>
+                @*<tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.imageAddress)
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="file" name="imageAddress" class="form-control" />
+
+                    </div>
+                </td>
+                <td style="color:red;">
+                    @Html.ValidationMessageFor(model => model.imageAddress)
+                </td>
+            </tr>*@
+
+
+
+            </table>
+
+        </fieldset>
+    }
+
+</div>

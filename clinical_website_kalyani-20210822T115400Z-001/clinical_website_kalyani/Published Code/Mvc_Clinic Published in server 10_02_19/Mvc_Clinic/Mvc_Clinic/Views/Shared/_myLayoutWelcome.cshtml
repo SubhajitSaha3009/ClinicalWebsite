@@ -1,0 +1,735 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<!-- Begin Head -->
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="Mitali Memorial, Mitali Memorial Poly Clinic,Clinic in Kalyani, Kalyani Clinic, Clinic, Poly Clinic, Kalyani, Clinic in West Bengal, One of the best clinic in Kalyani, Souvik Saha, Atanu Roy, Subhajit Saha " />
+    <meta name="description" content="Mitali Memorial Poly Clinic is West Bengal's one of the best poly clinics. Our group of more than 40 specialist doctors and 30 staffs give you the best of modern healthcare to ensure you stay healthy. We provide quality health care services with facilities for diagnostics, health checks & more, all under one roof.">
+    <meta name="author" content="Souvik Saha, Atanu Roy, Subhajit Saha">
+    <meta name="author" content="Subhajit Saha" />
+    <meta name="author" content="Souvik Saha" />
+    <meta name="author" content="Atanu roy" />
+    @RenderSection("metatags", required: false)
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+
+    <!-- Vendor Styles -->
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/themify/themify.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/themify/themify.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme Styles -->
+    <link href="@Url.Content("~/Content/MyTemplate/")css/style.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/MyTemplate/")css/global/global.css" rel="stylesheet" type="text/css" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/MyTemplate/")img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="@Url.Content("~/Content/MyTemplate/")img/apple-touch-icon.png">
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/MyTemplate/img/Logo/logo.png">
+
+</head>
+<!-- End Head -->
+<!-- Body -->
+<body>
+
+
+    <!--========== HEADER V2 ==========-->
+    <header class="navbar-fixed-top s-header-v2 js__header-sticky">
+        <!-- Navbar -->
+        <nav class="s-header-v2__navbar">
+            <div class="container g-display-table--lg">
+                <!-- Navbar Row -->
+                <div class="s-header-v2__navbar-row">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+
+                    <div class="s-header-v2__navbar-col">
+                        <button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                            <span class="s-header-v2__toggle-icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
+                        <!-- Logo -->
+                        <div class=" s-header-v2__logo row">
+                            <div class="col-md-6 col-sm-4 col-xs-4" style="padding-right:0px;">
+                                <a href="@Url.Action("Index","Home")" class="s-header-v2__logo-link -is-active">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="~/Content/MyTemplate/img/Logo/logo.png" alt="Clinic Logo">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="~/Content/MyTemplate/img/Logo/logo.png" alt="Clinic Logo">
+
+                                </a>
+                            </div>
+                            <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 hidden-xs g-font-weight--700 g-font g-font-size-24--xs" style="font-family: 'Cinzel Decoration',cursive; padding-left:0px;">
+                                <a href="@Url.Action("Index","Home")" class="s-header-v2__logo-link -is-active" style="color: #FF534E; ">
+                                    M.M.P.C.
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+
+
+                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+                            <ul class="s-header-v2__nav">
+                                <li class="s-header-v2__nav-item"><a href="@Url.Action("Index","Home")" class="s-header-v2__nav-link -is-active">Home</a></li>
+                                <li class="s-header-v2__nav-item"><a href="@Url.Action("DoctorsList","Home")" class="s-header-v2__nav-link">Doctors</a></li>
+                                <li class="s-header-v2__nav-item"><a href="@Url.Action("TestDepartments", "Home")" class="s-header-v2__nav-link">Tests</a></li>
+                                <li class="s-header-v2__nav-item"><a href="@Url.Action("FAQ","Home")" class="s-header-v2__nav-link">FAQ</a></li>
+
+                                <li class="s-header-v2__nav-item"><a href="#Contact" class="s-header-v2__nav-link">Contact Us</a></li>
+
+
+                            </ul>
+                        </div>
+                        <!-- End Nav Menu -->
+                    </div>
+                </div>
+                <!-- End Navbar Row -->
+            </div>
+        </nav>
+        <!-- End Navbar -->
+    </header>
+
+    <!--========== END HEADER V2 ==========-->
+    <!--========== SWIPER SLIDER ==========-->
+    <div class="s-swiper js__swiper-slider">
+        <!-- Swiper Wrapper -->
+        <div class="swiper-wrapper">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('../../Content/MyTemplate/img/1920x1080/cover16.jpg');">
+                <div class="container g-ver-center--xs">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="g-margin-b-50--xs">
+                                <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white">Medical Services<br>that You Can<br /> Trust</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('../../Content/MyTemplate/img/1920x1080/coverNew.jpg');">
+                <div class="container g-text-right--xs g-ver-center--xs">
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-5">
+                            <div class="g-margin-b-50--xs">
+                                <h2 class="g-font-size-32--xs g-font-size-45--sm g-font-size-55--md g-color--white">Medical Excellence<br>Every Day</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('../../Content/MyTemplate/img/1920x1080/cover23.jpg');">
+                <div class="container g-ver-center--xs">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="g-margin-b-50--xs">
+                                <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white">We are here<br />to take your<br> care </h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Swiper Wrapper -->
+        <!-- Pagination -->
+        <div class="s-swiper__pagination-v1 s-swiper__pagination-v1--bc s-swiper__pagination-v1--white js__swiper-pagination"></div>
+    </div>
+
+    <!--  ////////////////////////////////souvik 25/10/////////////////////////////////////////////////////////////////// -->
+    <!--Our Services Starts-->
+
+    <div class="g-hor-divider__solid--sky-light js__parallax-window">
+        <div class="container g-padding-y-40--xs g-padding-y-50--sm">
+            <div class="row g-margin-b-60--xs g-margin-b-70--md">
+                <center><p class="text-uppercase g-font-size-30--lg g-font-weight--700 g-color--gold g-letter-spacing--2 g-margin-b-50--xs" style="font-size:45px;">Our Services For You</p></center>
+
+                <div class="col-sm-4 g-margin-b-60--xs g-margin-b-0--md">
+                    <!-- Media -->
+                    <div class="clearfix">
+                        <div class="g-media g-width-60--xs">
+                            <div class="wow fadeInUp" data-wow-duration=".3" data-wow-delay=".2s">
+                                <!-- SVG Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 291.734 291.734" style="enable-background:new 0 0 291.734 291.734;" xml:space="preserve">
+<g>
+                                <g>
+                                <path d="M59.294,152.691c0.531,5.888,3.845,11.428,9.391,14.534c4.604,2.579,9.349,4.475,14.196,5.759    c-2.731,9.217-7.749,22.556-16.681,36.842c-8.484,13.577-8.585,29.961-0.267,44.957c12.254,22.1,39.312,36.951,67.341,36.951    c19.25,0,36.364-8.865,48.185-24.964c16.896-23.017,20.64-56.985,10.009-90.846c-9.854-31.389,3.325-48.135,12.045-55.333    c7.109,6.851,16.751,11.076,27.408,11.076c21.836,0,39.55-17.709,39.55-39.556s-17.714-39.551-39.55-39.551    c-21.847,0-39.551,17.709-39.551,39.551c0,3.076,0.383,6.053,1.046,8.927c-16.467,12.045-35.476,39.157-22.173,81.546    c8.389,26.729,5.815,53.939-6.727,71.018c-5.317,7.249-14.887,15.887-30.248,15.887c-19.874,0-39.566-10.486-47.882-25.492    c-3.068-5.535-5.608-13.919-0.318-22.385c11.814-18.911,17.727-36.558,20.531-47.344c6.566-0.989,12.977-3.107,19.144-6.4    c5.497-2.936,8.87-8.249,9.613-13.991c26.131-23.623,38.196-66.187,38.89-68.678c1.409-5.11-0.999-10.356-5.488-12.748    c3.609-31.954-8.218-48.059-15.354-54.619c0.544-3.07-0.684-6.354-3.381-8.114L135.91,1.148c-3.425-2.237-7.731-1.108-9.608,2.537    l-6.248,12.075c-1.882,3.646-0.223,7.534,3.708,8.694l14.825,4.37c3.759,1.108,8.262-0.688,10.39-3.982    c5.908,6.224,14.416,20.081,11.485,46.515c-4.029,0.767-7.482,3.702-8.652,7.922c-3.562,12.785-13.85,39.193-29.125,55.028    c-4.862-1.879-10.452-1.786-15.41,0.854c-3.229,1.725-6.387,2.594-9.628,2.662h-0.668c-3.415-0.073-6.75-1.036-10.165-2.946    c-4.836-2.713-10.344-2.952-15.201-1.238C56.68,117.739,46.611,91.89,43.108,79.281c-1.173-4.209-4.64-7.151-8.655-7.917    c-2.936-26.434,5.569-40.291,11.485-46.515c2.13,3.293,6.628,5.09,10.387,3.981l14.825-4.37c3.925-1.16,5.595-5.054,3.708-8.694    L68.615,3.69c-1.882-3.646-6.188-4.774-9.608-2.537L45.881,9.729c-2.695,1.76-3.92,5.043-3.379,8.114    c-7.125,6.561-18.962,22.659-15.351,54.618c-4.492,2.393-6.892,7.638-5.489,12.754C22.344,87.654,34.046,128.861,59.294,152.691z     M230.921,76.661c8.522,0,15.445,6.913,15.445,15.452c0,8.533-6.923,15.451-15.445,15.451c-8.534,0-15.452-6.918-15.452-15.451    C215.469,83.573,222.382,76.661,230.921,76.661z" fill="#006DF0" />
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+                                <!-- End SVG Icon -->
+                            </div>
+                        </div>
+                        <div class="g-media__body g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-margin-b-10--xs">Diagnostics</h3>
+                            <p class="g-margin-b-0--xs">Our Clinic offers a range of imaging, cardiology, laboratory and diagnostic services that assist in detecting the nature, cause and stage of a health issue. We cater to patients of all age groups, right from young children to the elderly.</p>
+                        </div>
+                    </div>
+                    <!-- End Media -->
+                </div>
+                <div class="col-sm-4">
+                    <!-- Media -->
+                    <div class="clearfix">
+                        <div class="g-media g-width-60--xs">
+                            <div class="wow fadeInUp" data-wow-duration=".3" data-wow-delay=".3s">
+                                <!-- SVG Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 231 231" enable-background="new 0 0 231 231" width="60px" height="60spx">
+                                    <g>
+                                        <path d="m219.333,65.5h-54.333v-37c0-6.6-5.067-12-11.667-12h-74c-6.6,0-12.333,5.4-12.333,12v37h-54.667c-6.628,0-12.333,5.373-12.333,12v125c0,6.627 5.705,12 12.333,12h207c6.628,0 11.667-5.373 11.667-12v-125c0-6.627-5.039-12-11.667-12zm-136.333-33h66v33h-66v-33zm74,124h-25v25h-33v-25h-25v-33h25v-25h33v25h25v33z" fill="#006DF0" />
+                                    </g>
+                                </svg>
+
+                                <!-- End SVG Icon -->
+                            </div>
+                        </div>
+                        <div class="g-media__body g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-margin-b-10--xs">Health Checks</h3>
+                            <p class="g-margin-b-0--xs">Thanks to advancements, diseases that were previously thought incurable can now be treated, provided the disease is diagnosed in its initial stages. Regular health check-ups help assess a person’s health and keep a close eye on risk areas.</p>
+                        </div>
+                    </div>
+                    <!-- End Media -->
+                </div>
+                <div class="col-sm-4">
+                    <!-- Media -->
+                    <div class="clearfix">
+                        <div class="g-media g-width-60--xs">
+                            <div class="wow fadeInUp" data-wow-duration=".3" data-wow-delay=".6s">
+                                <!-- SVG Icon -->
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 384.895 384.895" style="enable-background:new 0 0 384.895 384.895;" xml:space="preserve">
+<g>
+                                <rect x="14.085" y="26.113" style="fill:#6EBEFF;" width="356.725" height="344.107" />
+                                <rect x="24.949" y="142.276" style="fill:#FFFFFF;" width="139.502" height="227.943" />
+                                <g>
+                                <rect x="31.951" y="149.279" style="fill:#2D4151;" width="59.441" height="220.94" />
+                                <rect x="98.393" y="149.279" style="fill:#2D4151;" width="59.441" height="220.94" />
+	</g>
+                                <rect x="171.951" y="142.276" style="fill:#FFFFFF;" width="189" height="139.608" />
+                                <g>
+                                <rect x="177.951" y="149.279" style="fill:#2D4151;" width="85" height="126.062" />
+	</g>
+                                <g>
+                                <rect x="269.951" y="149.279" style="fill:#2D4151;" width="85" height="126.062" />
+	</g>
+                                <path style="opacity:0.2;fill:#FCFAFA;enable-background:new    ;" d="M153.72,273.167v93.296h-53.371
+		C100.349,366.463,147.182,351.48,153.72,273.167z" />
+                                <path style="opacity:0.2;fill:#FCFAFA;enable-background:new    ;" d="M87.72,273.167v93.296H34.349
+		C34.349,366.463,81.182,351.48,87.72,273.167z" />
+                                <g>
+                                <rect x="78.392" y="261.779" style="fill:#FFFFFF;" width="5" height="18" />
+                                <rect x="106.392" y="261.779" style="fill:#FFFFFF;" width="5" height="18" />
+	</g>
+                                <rect x="29.757" y="42.92" style="fill:#5DB0E8;" width="336.002" height="75.895" />
+                                <rect x="24.949" y="38.112" style="fill:#FFFFFF;" width="336.002" height="75.895" />
+                                <path style="fill:#39B54A;" d="M63.867,45.06c-17.259,0-31.25,13.879-31.25,31s13.991,31,31.25,31s31.25-13.879,31.25-31
+		S81.126,45.06,63.867,45.06z M71.269,83.402v17.403H56.466V83.402H38.922V68.718h17.544V51.314h14.803v17.404h17.544v14.684
+		C88.813,83.402,71.269,83.402,71.269,83.402z" />
+                                <path style="fill:#51697A;" d="M221.756,164.882c-13.918,0-25.202,11.193-25.202,25s11.283,25,25.202,25
+		c13.918,0,25.202-11.193,25.202-25S235.675,164.882,221.756,164.882z M227.725,195.803v14.035h-11.938v-14.035h-14.148v-11.842
+		h14.148v-14.035h11.938v14.035h14.148v11.842H227.725z" />
+                                <path style="fill:#FFFFFF;" d="M219.98,234.613L219.98,234.613c-11.966,0-21.667,9.7-21.667,21.667v25.605h43.333v-25.605
+		C241.647,244.313,231.946,234.613,219.98,234.613z" />
+                                <path style="fill:#2D4151;" d="M204.314,275.341v-19.062c0-8.639,7.028-15.667,15.667-15.667s15.666,7.028,15.666,15.667v19.062
+		H204.314z" />
+                                <circle style="fill:#FFFFFF;" cx="210.98" cy="262.674" r="3" />
+                                <g>
+                                <path style="fill:#E6E6E6;" d="M146.441,77.442c-1.779,1.169-4.065,2.032-7.267,2.032h-7.927v14.329h-4.726V57.371h12.602
+			c3.404,0,5.641,0.711,7.521,1.982c2.845,1.931,4.572,5.132,4.572,8.943C151.217,72.158,149.388,75.562,146.441,77.442z
+			 M144.205,73.682c1.372-1.27,2.185-3.252,2.185-5.284c0-2.287-0.965-4.319-2.591-5.589c-1.118-0.864-2.541-1.372-4.624-1.372
+			h-7.927v13.972h7.927C141.41,75.409,143.036,74.749,144.205,73.682z" />
+                                <path style="fill:#E6E6E6;" d="M171.796,93.803V80.948c0-2.083-0.203-3.303-0.711-4.37c-0.763-1.575-2.235-2.592-4.421-2.592
+			c-2.185,0-3.861,1.016-4.776,2.388c-0.66,1.016-1.066,2.134-1.066,4.37v13.059h-4.472V57.371h4.472v15.955l0.051,0.051
+			c1.575-1.88,4.268-2.947,6.859-2.947c2.947,0,5.843,1.321,7.367,4.065c0.763,1.474,1.169,3.15,1.169,6.047v13.262h-4.472V93.803z" />
+                                <path style="fill:#E6E6E6;" d="M196.543,81.659v-1.626c0-2.337-0.509-3.557-1.423-4.522c-0.966-1.016-2.338-1.524-4.015-1.524
+			c-1.829,0-4.166,0.711-6.352,2.287l-1.778-3.049c2.592-1.88,5.793-2.795,8.689-2.795c2.692,0,5.183,0.762,6.91,2.541
+			c1.778,1.931,2.337,3.811,2.337,7.012v13.821h-4.115l-0.152-2.185c-1.626,1.931-4.624,2.744-6.962,2.744
+			c-5.335,0-8.485-3.455-8.485-7.571c0-3.811,2.896-7.469,8.689-7.469C192.173,79.322,194.866,80.186,196.543,81.659z
+			 M190.75,82.472c-3.15,0-5.183,1.728-5.183,4.268c0,2.49,1.931,4.319,5.132,4.319s5.844-1.626,5.844-4.319
+			C196.543,83.997,193.393,82.472,190.75,82.472z" />
+                                <path style="fill:#E6E6E6;" d="M216.31,74.393c-2.693,0-4.929,1.982-4.929,7.063v12.347h-4.472V70.938h4.217l0.153,2.947
+			c1.523-2.083,3.455-3.455,5.995-3.455c1.169,0,2.135,0.254,3.303,0.915l-0.965,3.912C218.596,74.749,217.325,74.393,216.31,74.393
+			z" />
+                                <path style="fill:#E6E6E6;" d="M242.071,73.682c1.829-2.032,4.37-3.252,7.673-3.252c2.845,0,5.995,1.271,7.418,4.065
+			c0.712,1.474,1.067,3.15,1.067,6.047v13.262h-4.472V80.948c0-2.083-0.203-3.303-0.66-4.37c-0.712-1.575-2.135-2.592-4.167-2.592
+			c-2.083,0-3.607,0.915-4.472,2.287c-0.609,1.016-1.016,2.236-1.016,4.471v13.059h-4.472V80.948c0-2.083-0.203-3.303-0.66-4.37
+			c-0.712-1.575-2.135-2.592-4.167-2.592c-2.083,0-3.607,0.915-4.472,2.287c-0.609,1.016-1.016,2.236-1.016,4.471v13.059h-4.472
+			V70.938h4.166l0.204,2.795c0.965-1.423,3.455-3.303,6.859-3.303C237.955,70.43,240.496,71.497,242.071,73.682z" />
+                                <path style="fill:#E6E6E6;" d="M278.506,81.659v-1.626c0-2.337-0.509-3.557-1.423-4.522c-0.966-1.016-2.338-1.524-4.015-1.524
+			c-1.829,0-4.166,0.711-6.352,2.287l-1.778-3.049c2.592-1.88,5.793-2.795,8.689-2.795c2.692,0,5.183,0.762,6.91,2.541
+			c1.778,1.931,2.337,3.811,2.337,7.012v13.821h-4.115l-0.152-2.185c-1.626,1.931-4.624,2.744-6.962,2.744
+			c-5.335,0-8.485-3.455-8.485-7.571c0-3.811,2.896-7.469,8.689-7.469C274.136,79.322,276.829,80.186,278.506,81.659z
+			 M272.713,82.472c-3.15,0-5.183,1.728-5.183,4.268c0,2.49,1.931,4.319,5.132,4.319s5.844-1.626,5.844-4.319
+			C278.506,83.997,275.355,82.472,272.713,82.472z" />
+                                <path style="fill:#E6E6E6;" d="M299.593,90.805c2.998,0,4.878-1.372,6.657-3.811l3.149,2.185
+			c-2.083,3.252-5.538,5.183-9.705,5.183c-7.063,0-11.94-5.437-11.94-11.941c0-6.555,5.132-11.992,11.94-11.992
+			c3.913,0,7.368,1.626,9.502,4.573l-3.049,2.49c-1.422-1.88-3.557-3.455-6.555-3.455c-4.064,0-7.367,3.608-7.367,8.384
+			C292.226,87.35,295.528,90.805,299.593,90.805z" />
+                                <path style="fill:#E6E6E6;" d="M311.382,70.938h4.878l6.91,17.276h0.103l6.605-17.276h4.318l-13.617,33.485h-4.421l4.624-10.975
+			L311.382,70.938z" />
+	</g>
+                                <g>
+                                <path style="fill:#2D4151;" d="M143.441,74.442c-1.779,1.169-4.065,2.032-7.267,2.032h-7.927v14.329h-4.726V54.371h12.602
+			c3.404,0,5.641,0.711,7.521,1.982c2.845,1.931,4.572,5.132,4.572,8.943C148.217,69.158,146.388,72.562,143.441,74.442z
+			 M141.205,70.682c1.372-1.27,2.185-3.252,2.185-5.284c0-2.287-0.965-4.319-2.591-5.589c-1.118-0.864-2.541-1.372-4.624-1.372
+			h-7.927v13.972h7.927C138.41,72.409,140.036,71.749,141.205,70.682z" />
+                                <path style="fill:#2D4151;" d="M168.796,90.803V77.948c0-2.083-0.203-3.303-0.711-4.37c-0.763-1.575-2.235-2.592-4.421-2.592
+			c-2.185,0-3.861,1.016-4.776,2.388c-0.66,1.016-1.066,2.134-1.066,4.37v13.059h-4.472V54.371h4.472v15.955l0.051,0.051
+			c1.575-1.88,4.268-2.947,6.859-2.947c2.947,0,5.843,1.321,7.367,4.065c0.763,1.474,1.169,3.15,1.169,6.047v13.262h-4.472V90.803z" />
+                                <path style="fill:#2D4151;" d="M193.543,78.659v-1.626c0-2.337-0.509-3.557-1.423-4.522c-0.966-1.016-2.338-1.524-4.015-1.524
+			c-1.829,0-4.166,0.711-6.352,2.287l-1.778-3.049c2.592-1.88,5.793-2.795,8.689-2.795c2.692,0,5.183,0.762,6.91,2.541
+			c1.778,1.931,2.337,3.811,2.337,7.012v13.821h-4.115l-0.152-2.185c-1.626,1.931-4.624,2.744-6.962,2.744
+			c-5.335,0-8.485-3.455-8.485-7.571c0-3.811,2.896-7.469,8.689-7.469C189.173,76.322,191.866,77.186,193.543,78.659z
+			 M187.75,79.472c-3.15,0-5.183,1.728-5.183,4.268c0,2.49,1.931,4.319,5.132,4.319s5.844-1.626,5.844-4.319
+			C193.543,80.997,190.393,79.472,187.75,79.472z" />
+                                <path style="fill:#2D4151;" d="M213.31,71.393c-2.693,0-4.929,1.982-4.929,7.063v12.347h-4.472V67.938h4.217l0.153,2.947
+			c1.523-2.083,3.455-3.455,5.995-3.455c1.169,0,2.135,0.254,3.303,0.915l-0.965,3.912C215.596,71.749,214.325,71.393,213.31,71.393
+			z" />
+                                <path style="fill:#2D4151;" d="M239.071,70.682c1.829-2.032,4.37-3.252,7.673-3.252c2.845,0,5.995,1.271,7.418,4.065
+			c0.712,1.474,1.067,3.15,1.067,6.047v13.262h-4.472V77.948c0-2.083-0.203-3.303-0.66-4.37c-0.712-1.575-2.135-2.592-4.167-2.592
+			c-2.083,0-3.607,0.915-4.472,2.287c-0.609,1.016-1.016,2.236-1.016,4.471v13.059h-4.472V77.948c0-2.083-0.203-3.303-0.66-4.37
+			c-0.712-1.575-2.135-2.592-4.167-2.592c-2.083,0-3.607,0.915-4.472,2.287c-0.609,1.016-1.016,2.236-1.016,4.471v13.059h-4.472
+			V67.938h4.166l0.204,2.795c0.965-1.423,3.455-3.303,6.859-3.303C234.955,67.43,237.496,68.497,239.071,70.682z" />
+                                <path style="fill:#2D4151;" d="M275.506,78.659v-1.626c0-2.337-0.509-3.557-1.423-4.522c-0.966-1.016-2.338-1.524-4.015-1.524
+			c-1.829,0-4.166,0.711-6.352,2.287l-1.778-3.049c2.592-1.88,5.793-2.795,8.689-2.795c2.692,0,5.183,0.762,6.91,2.541
+			c1.778,1.931,2.337,3.811,2.337,7.012v13.821h-4.115l-0.152-2.185c-1.626,1.931-4.624,2.744-6.962,2.744
+			c-5.335,0-8.485-3.455-8.485-7.571c0-3.811,2.896-7.469,8.689-7.469C271.136,76.322,273.829,77.186,275.506,78.659z
+			 M269.713,79.472c-3.15,0-5.183,1.728-5.183,4.268c0,2.49,1.931,4.319,5.132,4.319s5.844-1.626,5.844-4.319
+			C275.506,80.997,272.355,79.472,269.713,79.472z" />
+                                <path style="fill:#2D4151;" d="M296.593,87.805c2.998,0,4.878-1.372,6.657-3.811l3.149,2.185
+			c-2.083,3.252-5.538,5.183-9.705,5.183c-7.063,0-11.94-5.437-11.94-11.941c0-6.555,5.132-11.992,11.94-11.992
+			c3.913,0,7.368,1.626,9.502,4.573l-3.049,2.49c-1.422-1.88-3.557-3.455-6.555-3.455c-4.064,0-7.367,3.608-7.367,8.384
+			C289.226,84.35,292.528,87.805,296.593,87.805z" />
+                                <path style="fill:#2D4151;" d="M308.382,67.938h4.878l6.91,17.276h0.103l6.605-17.276h4.318l-13.617,33.485h-4.421l4.624-10.975
+			L308.382,67.938z" />
+	</g>
+                                <rect x="275.951" y="253.674" style="fill:#6EBEFF;" width="73" height="6.667" />
+                                <rect x="275.951" y="205.007" style="fill:#6EBEFF;" width="73" height="6.667" />
+                                <path style="fill:#FFFFFF;" d="M337.026,232.341h-10.091c-1.632,0-2.954,1.323-2.954,2.954v18.379h16v-18.379
+		C339.98,233.663,338.657,232.341,337.026,232.341z" />
+                                <rect x="326.935" y="227.341" style="fill:#ED4C58;" width="10.046" height="5" />
+                                <path style="fill:#FFFFFF;" d="M320.359,183.674h-10.091c-1.632,0-2.954,1.323-2.954,2.954v18.379h16v-18.379
+		C323.314,184.997,321.991,183.674,320.359,183.674z" />
+                                <rect x="310.268" y="178.674" style="fill:#39B54A;" width="10.046" height="5" />
+                                <path style="fill:#39B54A;" d="M306.98,230.007h-15.667c-0.828,0-1.5-0.672-1.5-1.5V217.84c0-0.828,0.672-1.5,1.5-1.5h15.667
+		c0.828,0,1.5,0.672,1.5,1.5v10.667C308.48,229.337,307.809,230.007,306.98,230.007z M292.814,227.007h12.667v-7.667h-12.667
+		V227.007z" />
+                                <path style="fill:#39B54A;" d="M311.07,223.341h-23.846c-1.791,0-3.243,1.452-3.243,3.243v23.846c0,1.791,1.452,3.243,3.243,3.243
+		h23.846c1.791,0,3.243-1.452,3.243-3.243v-23.846C314.314,224.794,312.861,223.341,311.07,223.341z" />
+                                <path style="fill:#FFFFFF;" d="M299.147,227.803c-5.96,0-10.791,4.792-10.791,10.704c0,5.912,4.831,10.704,10.791,10.704
+		s10.791-4.792,10.791-10.704C309.937,232.596,305.106,227.803,299.147,227.803z M301.703,241.044v6.009h-5.111v-6.009h-6.058v-5.07
+		h6.058v-6.009h5.111v6.009h6.058v5.07H301.703z" />
+                                <rect x="287.313" y="198.341" style="fill:#ED4C58;" width="12.667" height="6.667" />
+                                <polygon style="fill:#FFFFFF;" points="302.281,177.674 285.679,177.674 287.314,198.341 299.98,198.341 	" />
+                                <rect x="329.314" y="180.007" style="fill:#FFFFFF;" width="15" height="25" />
+                                <path style="fill:#ED4C58;" d="M340.927,197.841H332.7c-0.766,0-1.386-0.621-1.386-1.386v-7.894c0-0.766,0.621-1.386,1.386-1.386
+		h8.227c0.766,0,1.386,0.621,1.386,1.386v7.894C342.314,197.22,341.693,197.841,340.927,197.841z" />
+                                <rect x="190.98" y="281.884" style="fill:#5DB0E8;" width="65.333" height="15.333" />
+                                <rect x="186.314" y="275.34" style="fill:#FFFFFF;" width="65.333" height="15.333" />
+                                <rect y="14.674" style="fill:#5DB0E8;" width="384.895" height="11.438" />
+                                <path style="fill:#5DB0E8;" d="M328.451,311.007h-124c-8.56,0-15.5,6.94-15.5,15.5l0,0c0,8.56,6.94,15.5,15.5,15.5h124
+		c8.56,0,15.5-6.94,15.5-15.5l0,0C343.951,317.947,337.011,311.007,328.451,311.007z" />
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+                                <!-- End SVG Icon -->
+                            </div>
+                        </div>
+                        <div class="g-media__body g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-margin-b-10--xs">Pharmacy</h3>
+                            <p class="g-margin-b-0--xs">Our experts in medicines use their clinical expertise, together with their practical knowledge to advise you on common problems as well as healthy eating. We also help you decide whether you need to see a health professional.</p>
+                        </div>
+                    </div>
+                    <!-- End Media -->
+                </div>
+            </div>
+
+
+
+            <div class="row"></div>
+        </div>
+    </div>
+    <!--Our Services ends-->
+    <!--Parallax starts-->
+
+    <div class=" g-bg-position--center js__parallax-window" style="background: url('../../Content/MyTemplate/img/1920x1080/parallax3.jpg') 50% 0 no-repeat fixed;">
+        <div class="container g-padding-y-80--xs">
+            <div class="g-margin-b-45--xs">
+                <center>   <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white" style="font-family:Comic Sans MS;">We have our own medicine store</h2></center>
+            </div>
+            <div class="row hidden-xs">
+                <center>
+                    <div style="font-size:20px;font-family:'Courier New';text-align:justify" class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1 g-color--white g-font-weight--600">Mitali Memorial Polyclinic is meeting every single individual standard and performing admirably since 19.. against the majority of the key guidelines – that is those identifying with hazard administration, the management of the drug store group, what's more, the wellbeing and viability services and medicines management, assessing the context of the pharmacy</div>
+                    <div class="col-sm-3"><a href="@Url.Action("OurStore","Home")" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-margin-t-115--xs">Know More</a></div>
+                </center>
+            </div>
+            <div class="row visible-xs">
+                <center>
+                    <div style="font-size:20px;font-family:'Courier New';" class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1 g-color--white">Mitali Memorial Polyclinic is meeting every single individual standard and performing admirably since 19.. against the majority of the key guidelines – that is those identifying with hazard administration, the management of the drug store group, what's more, the wellbeing and viability services and medicines management, assessing the context of the pharmacy</div>
+                    <div class="col-sm-3"><a href="@Url.Action("OurStore","Home")" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-margin-t-50--xs g-font-weight--500">Know More</a></div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End Parallax -->
+    <!--=========== BEGAIN Why Choose Us SECTION ================-->
+    <section id="whychooseSection" style="background: url(../../Content/MyTemplate/img/1920x1080/why1.jpg) 50% 0 no-repeat fixed;padding-top:30px;width:100% ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 g-padding-y-20--xs">
+                    <div class="service-area">
+                        <!-- Start Service Title -->
+                        <div class="section-heading">
+                            <p style="text-align:center;"><b class="g-color--white g-font-size-38--xs g-text-center--xs">Why Choose Us</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 g-padding-y-20--xs">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                            <img class="img-thumbnail" style="width:100%;height:100%" src="~/Content/MyTemplate/img/970x647/02.jpg" />
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12 g-margin-b-20--xs">
+                            <div class="whyChoose-right">
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a class="media-icon">
+                                            <span style="color:darkgreen" class="fa fa-3x fa-user-md"></span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><b style="color:darkgreen">Qualified Doctors</b></h4>
+                                        <p class="g-color--white">In our practises you will meet kind, clinically excellent Doctors, Medical Specialists who will listen and work together with you so that you get the best possible treatment and care.</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a class="media-icon">
+                                            <span style="color:darkgreen" class="fa fa-3x fa-medkit"></span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 style="color:darkgreen" class="media-heading"><b>Health Diagnostic Services</b></h4>
+                                        <p class="g-color--white">Our Pathology Lab offers an extensive range of health diagnostic services and procedures , so that you can rely on us about your any sort of medical test. We ensure every diagnostic test is performed by suitably trained medical professionals.</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a class="media-icon">
+                                            <span style="color:darkgreen" class="fa fa-3x fa-flask"></span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 style="color:darkgreen" class="media-heading"><b>Knowledgeable Staff</b></h4>
+                                        <p class="g-color--white">Our pharmacists are prepared to help you with any health-related question about prescriptions and they can suggest you the best possible solution according to your problem.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========== END Why Choose Us SECTION ================-->
+    <!--Counter Starts-->
+    <!-- Counter -->
+    <div class="g-bg-position--center js__parallax-window" style="background: url('../../Content/MyTemplate/img/1920x1080/bg1.jpg') 50% 0 no-repeat fixed;">
+        <div class="container g-padding-y-40--xs g-padding-y-70--sm">
+            <div class="g-text-center--xs g-margin-b-80--xs">
+                <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs g-color--white-opacity">Facts in Numbers</p>
+                <h2 class="g-font-size-32--xs g-font-size-36--md g-font-family--playfair g-letter-spacing--1 g-color--white animatezoomin"><b style="font-size:60px;">You Can Make Us Better</b></h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
+                    <div class="g-text-center--xs">
+                        <img style="height:70px;width:85px;" src="~/Counter/patient.png" />
+                        <br /><br />
+                        <div class="g-margin-b-10--xs">
+
+                            <figure class="g-display-inline-block--xs g-font-size-70--xs g-font-family--playfair g-color--primary js__counter">2500</figure>
+                            <span class="g-font-size-40--xs g-font-family--playfair g-color--primary">+</span>
+                        </div>
+                        <h4 class="g-font-size-18--xs g-color--white">Satisfied Patients</h4>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
+                    <div class="g-text-center--xs">
+                        <img style="height:74px;width:70px;" src="~/Counter/doctor.png" />
+                        <br /><br />
+                        <div class="g-margin-b-10--xs">
+
+                            <figure class="g-display-inline-block--xs g-font-size-70--xs g-font-family--playfair g-color--primary js__counter">45</figure>
+                            <span class="g-font-size-40--xs g-font-family--playfair g-color--primary">+</span>
+                        </div>
+                        <h4 class="g-font-size-18--xs g-color--white">Specialist Doctors</h4>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
+                    <div class="g-text-center--xs">
+                        <img style="height:74px;width:70px;" src="~/Counter/equipment.png" />
+                        <br /><br />
+                        <div class="g-margin-b-10--xs">
+
+                            <figure class="g-display-inline-block--xs g-font-size-70--xs g-font-family--playfair g-color--primary js__counter">30</figure>
+                            <span class="g-font-size-40--xs g-font-family--playfair g-color--primary">+</span>
+                        </div>
+                        <h4 class="g-font-size-18--xs g-color--white">Medical Equipments</h4>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
+                    <div class="g-text-center--xs">
+                        <img style="height:74px;width:70px;" src="~/Counter/icon.png" />
+                        <br /><br />
+                        <div class="g-margin-b-10--xs">
+                            @{    DateTime datevalue = (Convert.ToDateTime(DateTime.Now.ToString()));
+                                String yy = datevalue.Year.ToString();
+                                int y = Convert.ToInt32(yy) - 1949;
+
+                                <figure class="g-display-inline-block--xs g-font-size-70--xs g-font-family--playfair g-color--primary js__counter"> @y</figure>
+                            }
+                            <span class="g-font-size-40--xs g-font-family--playfair g-color--primary">+</span>
+                        </div>
+                        <h4 class="g-font-size-18--xs g-color--white">Years Experience</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Counter -->
+    <!--Health Tips......-->
+
+    <div class="g-padding-y-40--xs g-padding-y-80--sm g-bg-position--center js__parallax-window" style="background: url('../../Content/MyTemplate/img/1920x1080/banner-ask-your-experts.jpg') 50% 0 no-repeat fixed;">
+        <div class="container g-text-center--xs">
+            <p class="text-uppercase g-font-size-38--xs g-font-weight--700 g-color--dark g-letter-spacing--2 g-margin-b-20--xs">Health Tips For You</p>
+            <div class="s-swiper js__swiper-testimonials">
+                <!-- Swiper Wrapper -->
+                <div class="swiper-wrapper g-margin-b-20--xs">
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--700 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Tips to Prevent Heart Disease And Stroke</b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> The most influential risk factor for cardiovascular disease is age – the older you are, the greater your risk. The evidence is overwhelming that cigarette smoking and second-hand exposure to smoke increases the risks of heart disease, lung disease, peripheral vascular disease and stroke. High blood pressure, called hypertension, is known as “the silent killer” as it goes without symptoms in most individuals. High blood pressure causes wear and tear of the delicate inner lining of your blood vessels. Abnormal or high blood lipids (fats) are a major contributor to cardiovascular disease. </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--400 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Habits of Very Happy Moms</b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> Have you been outside today? Fresh air, sunlight, and nature are believed to be critical mood enhancers for women, and moms can get this little lift while pushing strollers or swings. Look around that playground. Who looks happy? Go talk to her, right now. Being sleep-deprived may be a badge of honor for those with young babies, but the sooner you can figure out how to get your eight hours back, the more delirious with joy you will be. Very Happy Moms sometimes buy themselves flowers, just in case no one else has thought of it. Very Happy Moms have close mom friends. Knowing that others are in the trenches with you is key. </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--400 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Our Tips for a Healthy Mouth</b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> Good oral health can have so many wonderful life-changing benefits.  From greater self-confidence to better luck in careers and relationships, a healthy smile can truly transform your visual appearance. Brush your teeth last thing at night and at least one other time during the day with a fluoride toothpaste. If you use mouthwash don’t use it directly after brushing as you rinse away the fluoride from your toothpaste. Quit smoking to help reduce the chances of tooth staining, gum disease, tooth loss, and in more severe cases mouth cancer. Visit our dentist regularly, as often as they recommend. </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--400 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Protect Your Skin in Summer</b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> Healthy skin is the reflection of overall health condition of an individual. Summer is the time when our skin needs more protection. During summer, your body tends to lose a lot of moisture. So it is important to hydrate your body with water from time to time. A skin toner will keep the pores closed and keep the skin cool. You can try rose water as its natural cooling properties are excellent for summer. Sunscreen is the best way by which your skin is protected. Clean your face at least twice a day. Aerated drinks contain lots of sugar which is not good for your face instead drink water, fresh lime, fresh fruit juices or coconut water. </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--400 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Tips to Prevent Asthma Attacks</b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> Use allergy-proof covers on pillows and mattresses. Pet dander - a common asthma trigger - is often difficult to avoid entirely because for many of us, our pets are just like members of the family. Remove carpets and stuffed toys from bedrooms. Avoid areas where people smoke. Intense emotions and worry often worsen asthma symptoms so take steps to relieve stress in your life. Make time for things you enjoy doing - and for relaxation. Physical activity is important - even for people with asthma. Reduce the risk for exercise-induced asthma attacks by working out inside on very cold or very warm days. Talk to our doctor about asthma and exercise. </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--400 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Effective Ways to Lower Your Blood Pressure</b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> High blood pressure (hypertension) is called the “silent killer” for good reason. It has no symptoms, but it’s a major risk for heart disease and stroke. As you increase your heart and breathing rates, your heart gets stronger and pumps with less effort. This puts less pressure on your arteries, and lowers your blood pressure. If you’re overweight, losing even 5 to 10 pounds can reduce your blood pressure. Plus, you’ll lower your risk of other medical problems. Cutting back on salt and increasing your potassium intake can lower your blood pressure. Most of the extra salt in our diet comes from processed foods and restaurant food, not your salt shaker at home.  </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                            <h4 class="g-font-size-22--xs g-font-size-24--sm g-font-weight--400 g-font-family--primary g-margin-b-15--xs g-color--dark"><b class="g-bg-color--white-opacity-light">Lowering Cholesterol Naturally </b></h4>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-50--xs"></div>
+                            <div class="g-margin-b-40--xs">
+                                <p class="g-font-size-16--xs g-font-size-18--sm g-font-family--playfair g-color--dark g-font-weight--700"><i> Blood cholesterol is a fatty substance produced naturally by your liver and found in your blood. Most people with high cholesterol feel perfectly well and often have no symptoms. Therefore, the best way to find out if your cholesterol is high is to have a blood test. Ask our doctor for more information. It’s important to replace foods that contain unhealthy, saturated and trans-fats with foods that contain polyunsaturated and monounsaturated fats. Use spreads and margarines made from canola, sunflower or olive oil, instead of butter. Choose reduced-fat, low-fat or no-fat milk, yoghurt, custard and desserts, or calcium-added non-dairy food and drinks. </i></p>
+                            </div>
+                            <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-15--xs"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Swipper Wrapper -->
+                <!-- Arrows -->
+                <div class="g-font-size-22--xs g-color--heading js__swiper-fraction g-color--dark g-font-weight--700"></div>
+                <a href="javascript:void(0);" class="g-display-none--xs g-display-inline-block--sm s-swiper__arrow-v1--right s-icon s-icon--md s-icon--primary-brd g-radius--circle ti-angle-right js__swiper-btn--next"></a>
+                <a href="javascript:void(0);" class="g-display-none--xs g-display-inline-block--sm s-swiper__arrow-v1--left s-icon s-icon--md s-icon--primary-brd g-radius--circle ti-angle-left js__swiper-btn--prev"></a>
+                <!-- End Arrows -->
+            </div>
+        </div>
+    </div>
+    <!--End of Health Tips......-->
+    @RenderBody()
+
+    <footer class="g-bg-color--blueviolet">
+
+        <!-- Copyright -->
+        <div class="container g-padding-y-20--xs">
+            <div class="row">
+                <div>
+                    <p class="pull-left g-color--white-opacity-light">Copyright © 2018 <a href="@Url.Action("Index","Home")"> Mitali Memorial Poly Clinic,</a> All Rights Reserved.</p>
+                    <p class="pull-right"><a target="_blank" class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light" href="@Url.Action( "GetDevelopers", "Home")">Developers Group</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright -->
+    </footer>
+
+
+
+
+
+
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+    <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!-- Vendor -->
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.migrate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.back-to-top.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/scrollbar/jquery.scrollbar.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/swiper/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/masonry/jquery.masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/masonry/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.equal-height.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.parallax.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")vendor/jquery.wow.min.js"></script>
+
+
+    <script src="~/Content/MyTemplate/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script src="~/Content/MyTemplate/js/components/counter.min.js"></script>
+    <script src="~/Content/MyTemplate/vendor/counterup.min.js"></script>
+    <script src="~/Content/MyTemplate/vendor/waypoint.min.js"></script>
+
+    <!-- General Components and Settings -->
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/global.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/header-sticky.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/scrollbar.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/swiper.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/masonry.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/equal-height.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/parallax.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/MyTemplate/")js/components/wow.min.js"></script>
+    <script src="~/Content/MyTemplate/js/site.js"></script>
+    <!--========== END JAVASCRIPTS ==========-->
+
+
+</body>
+
+</html>

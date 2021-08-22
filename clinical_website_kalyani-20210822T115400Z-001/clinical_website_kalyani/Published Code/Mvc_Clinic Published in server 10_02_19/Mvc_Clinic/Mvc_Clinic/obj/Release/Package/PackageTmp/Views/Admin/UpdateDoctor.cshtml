@@ -1,0 +1,335 @@
+﻿@model Mvc_Clinic.Models.SearchDoctorModel
+
+@{
+    ViewBag.Title = "UpdateDoctor";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+
+
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<style>
+    article, aside, figure, footer, header, hgroup,
+    menu, nav, section {
+        display: block;
+    }
+</style>
+
+
+
+<div class="container-fluid" style="padding-top: 20px;padding-bottom: 150px; background-color: #f5fffa">
+    <div class="row">
+        <div style="height:40px">
+            <center>
+                <i style="color:red; font-size:22px;margin-bottom:30px">@ViewBag.Error    @ViewBag.Err</i>
+
+            </center>
+        </div>
+
+      
+      
+
+
+        @using (Html.BeginForm("UpdateDoctor", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+    
+        <center><legend><h2>UPDATE DOCTOR</h2></legend></center>
+
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-12">
+            @*<b style="color:red; font-size:18px;margin-bottom:30px">    @ViewBag.Err</b>*@
+            <div id="js__grid-portfolio-gallery" class="cbp col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <!-- Item -->
+                <div class="s-portfolio__item cbp-item logos motion">
+                    <div class="s-portfolio__img-effect" style="height:220px;width:190px;">
+                        <img id="blah" style="width:100%;height:100%" src="@ViewBag.ImageAddress" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg' ">
+                    </div>
+                    <div class="s-portfolio__caption-hover--cc" style="height:220px;width:190px;">
+                        <div class="g-margin-b-25--xs">
+                            <h2 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">Image size should not be greater than</h2>
+                            <p class="g-color--white-opacity">2mb</p>
+                        </div>
+
+                        <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
+                            <li>
+                                <div class="buttonEdit">
+                                    <label for="uploadBtn" style="color:white;cursor:pointer"><span class="glyphicon glyphicon-pencil"></span>&nbsp; edit</label>
+                                </div>
+                                <input type="file" name="imageAddress" id="uploadBtn" onchange="readURL(this);" value="@Request["imageAddress"]" accept="image/jpg, image/jpeg, image/png">
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+                @*<b style="color:red; font-size:18px;margin-top:50px">    @ViewBag.Err</b>*@
+            </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                <div class="row visible-xs" style="height: 30px;"></div>
+
+                <table cellpadding="0" cellspacing="0" style="width:100%;">
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.doctorID, new { @style = "font-size:18px;" })
+                            @*<div class="form-group" style="border:green 2px solid; width:90px">
+                                    @Html.LabelFor(model => model.doctorID)
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorID)*@
+                                @*@Html.TextBox("doctorID", (Int32)ViewBag.id)*@
+                                @*@ViewBag.id*@
+                                @Html.TextBox("doctorID", (Int32)ViewBag.id, new { @class = "form-control ", @readonly = "readonly" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.doctorID)
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.doctorName, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.doctorName, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorName)*@
+                                @Html.TextBox("doctorName", (string)ViewBag.name, new { @class = "form-control", placeholder = "*Doctor Name" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.doctorName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.doctorDesignation, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.doctorDesignation, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorDesignation)*@
+                                @Html.TextBox("doctorDesignation", (string)ViewBag.desig, new { @class = "form-control", placeholder = "e.g. Attached with Apollo Gleneagles Hospitals(Kol.)" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.doctorDesignation)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.doctorSpeciality, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.doctorSpeciality, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorSpeciality)*@
+                                @Html.TextBox("doctorSpeciality", (string)ViewBag.specialty, new { @class = "form-control", placeholder = "e.g. Consultant physician" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.doctorSpeciality)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.doctorDegree, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.doctorDegree, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorDegree)*@
+                                @Html.TextBox("doctorDegree", (string)ViewBag.deg, new { @class = "form-control", placeholder = "e.g. M.B.B.S. (Cal)" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.doctorDegree)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.doctorStatus, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.doctorStatus, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.doctorStatus)*@
+                                @*@Html.TextBox("doctorStatus", (string)ViewBag.stat, new { @class = "form-control", placeholder = "*Doctor Status" })*@
+                                @Html.DropDownList("doctorStatus", ViewBag.stat as List<SelectListItem>, new { @class = "form-control " })
+
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.doctorStatus)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.workingTiming, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.workingTiming, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.workingTiming)*@
+                                @Html.TextBox("workingTiming", (string)ViewBag.wtiming, new { @class = "form-control", placeholder = "e.g. Every Sunday from 7 pm" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.workingTiming)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.numberForAppointment, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.numberForAppointment, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.numberForAppointment)*@
+                                @Html.TextBox("numberForAppointment", (string)ViewBag.no, new { @class = "form-control", placeholder = "Enter 10 digit mobile number" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.numberForAppointment)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.alternateNumberForAppointment, new { @style = "font-size:18px;" })
+                            @*<div class="editor-label">
+                                    @Html.LabelFor(model => model.alternateNumberForAppointment, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.alternateNumberForAppointment)*@
+                                @Html.TextBox("alternateNumberForAppointment", (string)ViewBag.ano, new { @class = "form-control", placeholder = "Enter 10 digit mobile number" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.alternateNumberForAppointment)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.LnumberForAppointment, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.LnumberForAppointment, new { style = "width:50px" })
+                                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.LnumberForAppointment)*@
+                                @Html.TextBox("LnumberForAppointment", (string)ViewBag.lno, new { @class = "form-control", placeholder = "Enter landline number" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.LnumberForAppointment)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.ModifierID, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                    @Html.LabelFor(model => model.LnumberForAppointment, new { style = "width:50px" })
+                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.LnumberForAppointment)*@
+                                @Html.TextBox("ModifierID", (int)ViewBag.ModifierID, new { @class = "form-control", @readonly="readonly" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.ModifierID)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.LastModifiedDate, new { @style = "font-size:18px;" })
+                            @*<div class="form-group">
+                    @Html.LabelFor(model => model.LnumberForAppointment, new { style = "width:50px" })
+                </div>*@
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.EditorFor(model => model.LnumberForAppointment)*@
+                                @Html.TextBox("LastModifiedDate", (DateTime)ViewBag.LastModifieddate, new { @class = "form-control", @readonly = "readonly" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.LastModifiedDate)
+                        </td>
+                    </tr>
+                    @*<tr><td><div style="height:15px;"></td></tr>*@
+                    <tr>
+                        <td></td>
+                        <td style="text-align:center;">
+                            <p>
+                                <input type="submit" class="btn btn-primary" value="Update Doctor Profile" />
+                            </p>
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+            </div>
+        </div>
+    
+        }
+    </div>
+
+</div>

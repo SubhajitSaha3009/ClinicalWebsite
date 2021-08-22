@@ -1,0 +1,132 @@
+﻿@model Mvc_Clinic.Models.DoctorModel
+
+@{
+    ViewBag.Title = "Book An Appoinment :: Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_myLayout3.cshtml";
+}
+
+
+@section metatags{
+    <meta name="description" content="@ViewBag.Desc">
+    <meta property="og:title" content="@ViewBag.Title1" />
+    <meta property="og:description" content="@ViewBag.Desc" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="@ViewBag.Url" />
+    <meta property="og:site_name" content="Mitali Memorial Clinic" />
+    <meta property="og:image" content="@ViewBag.image" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="Mitali Memorial Clinic" />
+    <meta name="twitter:title" content="@ViewBag.Title1" />
+    <meta name="twitter:description" content="@ViewBag.Desc" />
+    <meta name="twitter:image:src" content="@ViewBag.image" />
+    <meta name="twitter:url" content="@ViewBag.Url" />
+
+}
+
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="g-padding-y-30--lg"></div>
+
+<div class="container-fluid " style="background:url('../../Content/MyTemplate/img/doctor-banner-edited.jpg');background-repeat:no-repeat;background-color:#C8DFFF;">
+    
+
+    <div class="col-sm-6 col-sm-offset-3 col-xs-12 g-margin-t-100--xs g-margin-b-40--xs g-padding-y-45--xs g-bg-color--white-opacity">
+        <div class="row">
+            <center>
+                <h2 style="padding-bottom:0px;font-family:Cooper"><i class="g-font-weight--700">@Html.DisplayFor(model => model.doctorName)</i></h2>
+                <div style="margin-bottom:10px; width:40%" class="g-hor-divider__solid--heading-light"></div>
+            </center>
+        </div>
+        <div class="row visible-xs">
+            <div class="col-xs-8 col-xs-offset-2">
+                <img class="img-thumbnail" style="width:100%;height:100%" src="@Html.DisplayFor(model => model.imageAddress)" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg' " />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <table class="g-margin-l-25--sm g-margin-l-5--xs g-margin-t-15--xs" style="width:100%;">
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-stethoscope"></i>
+                        </td>
+                        <td class="g-font-weight--700 g-font-size-16--xs">
+                            &nbsp;@Html.DisplayFor(model => model.doctorSpeciality)
+                        </td>
+                    </tr>
+                    <tr class="g-height-10--xs"></tr>
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-hospital-o"></i>
+                        </td>
+                        <td class="g-font-weight--500 g-font-size-15--xs">
+                            &nbsp;@Html.DisplayFor(model => model.doctorDesignation)
+                        </td>
+                    </tr>
+                    <tr class="g-height-5--xs"></tr>
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-graduation-cap"></i>
+                        </td>
+                        <td class="g-font-weight--500 g-font-size-15--xs">
+                            &nbsp;@Html.DisplayFor(model => model.doctorDegree)
+                        </td>
+                    </tr>
+                    <tr class="g-height-5--xs"></tr>
+                    <tr>
+                        <td style="color:#a5d549">
+                            <i class="fa fa-2x fa-calendar"></i>
+                        </td>
+                        <td class="g-font-weight--500 g-font-size-15--xs">
+                            &nbsp;@Html.DisplayFor(model => model.workingTiming)
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="col-sm-5 col-sm-offset-1 col-xs-10 hidden-xs">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <img class="img-thumbnail" style="width:100%;height:100%" src="@Html.DisplayFor(model => model.imageAddress)" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg' " />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 g-margin-t-10--xs">
+                @*<i style="color:green;font-size:20px;">Note:</i>*@ <div style="color:darkmagenta;font-size:16px;">Contact number for appointment is: @Html.DisplayFor(model => model.numberForAppointment)</div>
+                @if (Model.LnumberForAppointment != "")
+                {
+                    <i style="color:darkmagenta;">Landline number for appointment is: @Html.DisplayFor(model => model.LnumberForAppointment)</i>
+                }
+            </div>
+            <div class="col-sm-5 col-sm-offset-1 g-margin-t-10--xs">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <center>
+                            <p class=" g-font-weight--700 g-font-size-18--xs" style="color:#a5d549">
+                                Sharing is Caring
+                            </p>
+                        </center>
+                    </div>
+                </div>
+                <div class="row g-margin-r-30--xs" style="float:right">
+                    <div class="fb-share-button " data-href="@ViewBag.Url" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"></a></div>
+                    <a target="_blank" class="fa fa-twitter g-margin-l-5--xs" style="color:#a5d549" href="https://twitter.com/intent/tweet?text=@ViewBag.Url" data-size="large"></a>
+                    <a target="_blank" class="fa fa-google-plus g-margin-l-5--xs" style="color:#a5d549" href="https://plus.google.com/share?url=@ViewBag.Url"></a>
+                    <a target="_blank" class="fa fa-linkedin g-margin-l-5--xs" style="color:#a5d549" href="https://www.linkedin.com/shareArticle?mini=true&url=@ViewBag.Url"></a>
+                    <a target="_blank" class="fa fa-whatsapp g-margin-l-5--xs" style="color:#a5d549" href="https://api.whatsapp.com//send?text=http://www.mitalimemorial.in/Home/ShowDocSchedule?doctorID=@Model.doctorID" data-action="share/whatsapp/share"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+    </div>

@@ -1,0 +1,260 @@
+﻿@model Mvc_Clinic.Models.AddTestModel
+
+@{
+    ViewBag.Title = "UpdateTest";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#ddl_dept").click(function () {
+
+            var n1 = $("#ddl_dept").val();
+            //alert(n1);
+            var url = "/Admin/GetSubDeptAjax";
+
+            $.get(url, { deptID: n1 }, function (data) {
+                // alert(data);
+                $("#ddl_sub").html(data);
+
+                for (var i = 0; i < data.length; i++) {
+                    var obj = data[i];
+                    //alert(obj.testDeptID);
+                    $('#ddl_sub').append('<option value=' + obj.testSub_DeptName + '>' + obj.testSub_DeptName + '</option>');
+                }
+
+
+            });
+            return false;
+        });
+
+
+
+    });
+</script>
+
+
+
+
+
+
+
+
+<div class="container-fluid" style="padding-top: 80px;padding-bottom: 150px; background-color: #f5fffa">
+    <div class="row">
+        <center><h2>Update Test</h2></center>
+        <br />
+        
+
+
+        @using (Html.BeginForm("UpdateTest", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-12">
+                <div id="js__grid-portfolio-gallery" class="cbp col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <!-- Item -->
+                    <div class="s-portfolio__item cbp-item logos motion">
+                        <div class="s-portfolio__img-effect" style="height:220px;width:190px;">
+                            @{
+                               string s = @ViewBag.img;
+                            }
+                            <img id="blah" style="width:100%;height:100%" src="@ViewBag.img" alt="" onerror="this.onerror = null; this.src = '/TestImages/default_testImage.jpg' " />
+                        </div>
+                        <div class="s-portfolio__caption-hover--cc" style="height:220px;width:190px;">
+                            <div class="g-margin-b-25--xs">
+                                <h2 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">Image size should not be greater than</h2>
+                                <p class="g-color--white-opacity">2mb</p>
+                            </div>
+
+                            <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
+                                <li>
+                                    <div class="buttonEdit">
+                                        <label for="uploadBtn" style="color:white;cursor:pointer"><span class="glyphicon glyphicon-pencil"></span>&nbsp; edit</label>
+                                    </div>
+                                    <input type="file" name="imageAddress" id="uploadBtn" onchange="readURL(this);" value="@Request["imageAddress"]" accept="image/jpg, image/jpeg, image/png">
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    
+                    @*<b style="color:red; font-size:18px;margin-top:50px">    @ViewBag.errmsg</b>*@
+                </div>
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                    <div class="row visible-xs" style="height: 30px;"></div>
+
+
+                    <table cellpadding="0" cellspacing="0" style="width:100%;text-align:center">
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    <b>Test ID</b>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextBox("TestId", (Int32)ViewBag.tId, new { @class = "form-control", @readOnly = "readOnly" })
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.TestName)
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextBox("TestName", (string)ViewBag.tName, new { @class = "form-control", placeholder = "*Test Name" })
+
+                                </div>
+                            </td>
+                            <td style="color:red;">
+                                <b>@Html.ValidationMessageFor(model => model.TestName)</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.TestDesc)
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextArea("TestDesc", (string)ViewBag.tDescription, new { @class = "form-control ", placeholder = "*Max 5000 Characters", @row = "7" })
+
+                                </div>
+                            </td>
+                            <td style="color:red;">
+                                <b>@Html.ValidationMessageFor(model => model.TestDesc)</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.TestSchedule)
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextBox("TestSchedule", (string)ViewBag.testSchd, new { @class = "form-control" })
+
+                                </div>
+                            </td>
+                            <td style="color:red;">
+                                <b>@Html.ValidationMessageFor(model => model.TestSchedule)</b>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.testDeptID, new { @style = "font-size:18px;" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.DropDownList("testDeptID", ViewBag.testDep as List<SelectListItem>, new { id = "ddl_dept", @class = "form-control " })
+                                </div>
+                            </td>
+                            <td style="color:red;">
+                                <b>@Html.ValidationMessageFor(model => model.testDeptID)</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.testSub_DeptName)
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextBox("testSub_DeptName", (string)ViewBag.testSub_Dep, new { @readonly = "readonly", @class = "form-control" })
+
+                                </div>
+                            </td>
+                            <td style="color:red;">
+                                <b>@Html.ValidationMessageFor(model => model.testSub_DeptName)</b>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.testSub_DeptName, new { @style = "font-size:18px;" })*@
+                                    Choose new Sub Dept. Name: 
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+
+                                    @*@Html.DropDownList("testSub_DeptName", ViewBag.dpt1 as List<SelectListItem>, new {id="ddl_sub", @class = "form-control " })*@
+                                    <select id="ddl_sub" name="testSub_DeptName1" class="form-control">
+                                        <option value="">Select</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td style="color:red;">
+                                <b>@Html.ValidationMessageFor(model => model.testSub_DeptName)</b>
+                            </td>
+                        </tr>
+
+
+
+
+
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Submit" class="btn-primary" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="color:red">
+                                <b>@ViewBag.Error</b>
+                                <b style="color:red; font-size:18px;margin-bottom:30px">    @ViewBag.errmsg</b>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+

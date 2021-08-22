@@ -1,0 +1,52 @@
+﻿@model Mvc_Clinic.Models.WorkingDaysList
+
+@{
+    ViewBag.Title = "AddWorkingDayofDoctor";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+@*<h2>AddWorkingDayofDoctor</h2>*@
+<div class="jumbotron" style="background-color:#f5fffa">
+    <div class="row">
+        <div class="col-xs-offset-1 col-md-5">
+            Previously Selected Working Days for the doctor were:-
+            @foreach (string str in @ViewBag.wd)
+            {
+                <br />
+                @Html.Label(str);
+
+            }
+        </div>
+
+        <div class="col-md-5">
+            @*<center>*@
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <div style="color:red"><center><b>@ViewBag.bc</b></center></div>
+                    <legend>WorkingDaysList</legend>
+
+                    <ul>
+                        @for (int i = 0; i < Model.lst_days.Count; i++)
+                        {
+                            <li>
+                                @Html.CheckBoxFor(m => Model.lst_days[i].isChecked)
+                                @Model.lst_days[i].WorkingDay
+                                @Html.HiddenFor(m => Model.lst_days[i].WorkingDay)
+                            </li>
+                        }
+                    </ul>
+
+                    <p>
+                        <input type="submit" class="btn btn-primary" value="Submit" />
+                    </p>
+                </fieldset>
+            }
+            @*</center>*@
+            </div>
+        </div>
+
+</div>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<div class="container-fluid" style="background-color:#f5fffa">
+    <div style="height:60px"></div>
+    <table align="center">
+        <tr>
+            <td><center><h3>@ViewBag.Redirectionmsg</h3></center></td>
+        </tr> 
+        <tr style="height:20px"></tr>
+        <tr>
+            <td>
+                <center> @Html.ActionLink((string)ViewBag.Btnlbl, (string)ViewBag.BtnAction, "Admin", new { @Class = "btn btn-primary" })</center>
+            </td>
+        </tr> 
+    </table>
+    <div style="height:60px"></div>
+    <div style="height:60px"></div>
+</div>
+
+

@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Mvc_Clinic.Models.FeedbackModel>
+@{
+    ViewBag.Title = "Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_myLayoutWelcome.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/Content/themes/base/css")
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $("#btn_sendFeedback").click(function () {
+           // alert("abc")
+            var url = "/Home/sendfeedbackNew/"
+
+            $.get(url, function (data) {
+                $("#fd").html(data);
+            })
+
+        });
+    });
+</script>
+
+<style>
+    #map {
+        height: 300px;
+        width: 100%;
+    }
+</style>
+<script>
+    function initMap() {
+        var mmpc = { lat: 22.968512, lng: 88.466004 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 19,
+            center: { lat: 22.968440, lng: 88.465708 }
+        });
+        var marker = new google.maps.Marker({
+            position: mmpc,
+            map: map,
+            icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        });
+        var infoWindow = new google.maps.InfoWindow({
+            content: '<h4><b>Mitali Memorial Poly Clinic</b></h4>'
+        });
+        marker.addListener('mouseover', function () {
+            infoWindow.open(map,marker);
+        });
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_fjP6nlBMmw1J51jLmUKavbias5nGZqM&callback=initMap">
+</script>
+
+<!-- Show feedback-->
+<!-- Testimonials -->
+<section id="testimonial" class="section-padding g-bg-position--center js__parallax-window" style="background: url('../../Content/MyTemplate/img/1920x1080/service_bg.jpg') 50% 0 no-repeat fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="ser-title g-color--white g-font-weight--700">see what patients are saying</h2>
+                <hr class="botm-line">
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-4" style="padding-bottom:20px;">
+                    <div class="testi-details g-radius--50" style="font-family:'Brush Script MT';">
+                        <!-- Paragraph -->
+                        <p class="g-font-size-22--xs g-color--dark">&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.feedbackMessage)</p>
+                    </div>
+                    <div class="testi-info">
+                        <!-- User Image -->
+                        <img src="~/Content/feedback_contact.png" alt="" class="img-responsive">
+                        <!-- User Name -->
+                        <h4 class="g-color--white g-font-size-32--xs" style="font-family:'Brush Script MT'">@Html.DisplayFor(modelItem => item.name)</h4>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row" style="text-align:right">
+            <a href="@Url.Action("ShowAllFeedbackToAll","Home")" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50">View all </a>
+        </div>
+    </div>
+</section>
+<!-- End Testimonials -->
+
+
+
+<div id="Contact"></div>
+    <!--Feedback form & contact us starts-->
+    <div id="g-bg-position--center js__scroll-to-appointment" class="g-bg-color--sky-light g-padding-y-40--xs g-padding-y-70--sm">
+        <div class="container g-bg-color--white-opacity g-box-shadow__dark-lightest-v3">
+            <div class="row">
+                <!-- Form -->
+                <div class="col-md-8 js__form-eqaul-height-v1">
+                    <div class="g-padding-y-10--xs">
+                        <div class="wow fadeInUp" data-wow-duration=".3" data-wow-delay=".1s" id="fd">
+                            <center>
+                                <!--=========== BEGIN Google Map SECTION ================-->
+                                <div class="g-font-weight--600 g-font-size-34--xs">
+                                    <center>
+                                        <a target="_blank" href="https://www.google.co.in/maps/place/Mitali+Memorial+Polyclinic/22.9684705,88.4659169,21z/data=!4m5!3m4!1s0x39f894d8730c7d47:0xf672f24d10bdd555!8m2!3d22.9685072!4d88.4660034?hl=en">
+                                            Get Direction&nbsp;<i style="color:#a5d549" class="fa fa-1x fa-location-arrow"></i>
+                                        </a>
+                                    </center>
+                                </div>
+                                <div class="g-margin-b-10--xs" id="map"></div>
+                                <!--=========== END Google Map SECTION ================-->
+                                <a class="text-uppercase s-btn s-btn--md s-btn--dark-bg g-radius--50" id="btn_sendFeedback">Send a feedback</a>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Form -->
+                <!-- Contacts -->
+                <div class="col-md-4 g-bg-color--primary-ltr js__form-eqaul-height-v1">
+                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                        <h2 class="g-font-size-24--xs g-color--white g-margin-b-50--xs">Contact Us</h2>
+                        <ul class="list-unstyled g-margin-b-70--xs">
+                            <li class="clearfix g-color--white g-margin-b-40--xs">
+                                <div class="g-media g-width-40--xs g-margin-t-5--xs">
+                                    <i class="g-font-size-20--xs g-color--white-opacity-light ti-location-pin"></i>
+                                </div>
+                                <div class="g-media__body">
+                                    kalyani, Kolkata, West Bengal
+                                </div>
+                            </li>
+                            <li class="clearfix g-color--white g-margin-b-40--xs">
+                                <div class="g-media g-width-40--xs g-margin-t-5--xs">
+                                    <i class="g-font-size-20--xs g-color--white-opacity-light ti-headphone-alt"></i>
+                                </div>
+                                <div class="g-media__body">
+                                    033-25829352
+                                </div>
+                            </li>
+                            <li class="clearfix g-color--white g-margin-b-40--xs">
+                                <div class="g-media g-width-40--xs g-margin-t-5--xs">
+                                    <i class="g-font-size-20--xs g-color--white-opacity-light ti-email"></i>
+                                </div>
+                                <div class="g-media__body">
+                                    contact@mitalimemorial.in
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list-inline g-ul-li-lr-15--xs">
+                            <li><a href="#"><i class="g-font-size-20--xs g-color--white-opacity ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="g-font-size-20--xs g-color--white-opacity ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="g-font-size-20--xs g-color--white-opacity ti-instagram"></i></a></li>
+                        </ul>
+                        <i class="g-font-size-150--xs g-color--white-opacity-lightest ti-comments" style="position: absolute; bottom: -1.25rem; right: -1.25rem;"></i>
+                    </div>
+                </div>
+                <!-- End Contacts -->
+            </div>
+        </div>
+    </div>
+    <!--Feedback & contact us ends-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

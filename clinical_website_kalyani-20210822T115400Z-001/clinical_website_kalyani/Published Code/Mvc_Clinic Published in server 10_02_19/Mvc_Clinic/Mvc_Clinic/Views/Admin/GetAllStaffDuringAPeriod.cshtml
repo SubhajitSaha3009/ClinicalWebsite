@@ -1,0 +1,154 @@
+﻿@model Mvc_Clinic.Models.StaffPeriodModel
+
+@{
+    ViewBag.Title = "GetAllStaffDuringAPeriod";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#fromDate").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#toDate").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+
+<div style="height:30px;"></div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <center>   <legend><h2>ENTER DATE TO SEARCH STAFF</h2></legend></center>
+
+        <table align="center" style="width:70%">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fromDate, new { @style = "font-size:18px;" })
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.EditorFor(model => model.fromDate)*@
+                        @Html.TextBox("fromDate", "", new { @class = "form-control ", placeholder = "mm/dd/yyyy", @readonly = "readonly" })
+                    </div>
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.fromDate)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.toDate, new { @style = "font-size:18px;" })
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        @*@Html.EditorFor(model => model.toDate)*@
+                        @Html.TextBox("toDate", "", new { @class = "form-control ", placeholder = "mm/dd/yyyy", @readonly = "readonly" })
+                    </div>
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.toDate)
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <p>
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </p>
+                </td>
+            </tr>
+
+        </table>
+
+        
+</fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#fromDate').change(function () {
+            var date = $('#fromDate').val();
+            var todate = $('#toDate').val();
+            var d = new Date();
+
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+
+            var output =
+                (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day + '/' +
+                 d.getFullYear();
+            if(date>output)
+            {
+                alert('invalid Date.');
+                $('#fromDate').val('');
+            }
+            if(todate!='' && date!='')
+            {
+                if(date>todate)
+                {
+                    alert('From date can not be greater than to date.');
+                    $('#fromDate').val('');
+                }
+            }
+        });
+        $('#toDate').change(function () {
+            var date = $('#fromDate').val();
+            var todate = $('#toDate').val();
+            var d = new Date();
+
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+
+            var output =
+                (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day + '/' +
+                 d.getFullYear();
+            if (date > output) {
+                alert('invalid Date.');
+                $('#toDate').val('');
+            }
+            if (todate != '' && date != '') {
+                if (date > todate) {
+                    alert('From date can not be greater than to date.');
+                    $('#toDate').val('');
+                }
+            }
+        });
+    });
+    
+
+</script>
+
+

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "NoStaff";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<div style="height:50px;"></div>
+<center>
+    <h2> No data found in between entered date.</h2>
+    <br/>
+
+   @Html.ActionLink("Please try again!", "GetAllStaffDuringAPeriod", "Admin", new { @Class = "btn btn-primary" })</center>
+
+</center>
+<div style="height:80px;"></div>

@@ -1,0 +1,90 @@
+﻿@model Mvc_Clinic.Models.CustomDeptAddModel
+
+@{
+    ViewBag.Title = "ViewallSubDept";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+
+<center>
+    <h2 style="margin-top:20px">All Departments</h2>
+    <div style="height:25px;">
+        <b style="color:green">@ViewBag.Smsg</b>
+        <b style="color:red">@ViewBag.Fmsg</b>
+    </div>
+    <div style="overflow-x:scroll;width:100%">
+        <table class="table table-hover table-bordered " style="width:35%;">
+            <tr>
+                <th>Departments</th>
+                <td>Sub-Departments</td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <div>
+                        <div class="form-group">
+                            @*@Html.DropDownList("Model.testDeptID", ViewBag.dpt as List<SelectListItem>, new { id = "ddl_dept", @class = "form-control " })*@
+                            @Html.DisplayFor(modelItem => Model.test_dept.testDeptName)
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <table class="table table-hover table-bordered">
+
+                        @foreach (var item in Model.test_subdeptList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.testSub_DeptName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Delete", "DeleteSubDepartment", new { @Class = "btn btn-primary", id = item.testSub_DeptID }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="jumbotron" style="background-color:#f5fffa">
+        @using (@Html.BeginForm())
+        {
+            <div>
+                <table align="center" style="width:55%">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.tes,t_dept.testDeptName, new { @style = "font-size:13px;" })*@
+                                Enter New Sub-epartment Name Under <b>@Html.DisplayFor(modelItem => Model.test_dept.testDeptName)</b>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @Html.TextBoxFor(model => Model.test_subdept.testSub_DeptName, new { @Class = "form-control", placeholder = "*Department Name" })
+
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red">@Html.ValidationMessageFor(model => Model.test_subdept.testSub_DeptName)</b>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+
+                        <td>
+                            <input type="submit" value="Add Sub-epartment" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+</center>

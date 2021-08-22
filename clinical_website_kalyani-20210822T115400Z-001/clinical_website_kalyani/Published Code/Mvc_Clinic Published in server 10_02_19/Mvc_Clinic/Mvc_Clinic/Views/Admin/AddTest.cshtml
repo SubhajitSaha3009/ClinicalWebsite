@@ -1,0 +1,189 @@
+﻿@model Mvc_Clinic.Models.AddTestModel
+
+@{
+    ViewBag.Title = "AddTest";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#ddl_dept").change(function () {
+                
+                var n1 = $("#ddl_dept").val();
+                //alert(n1);
+                var url = "/Admin/GetSubDeptAjax";
+
+                $.get(url, { deptID: n1 }, function (data) {
+                   // alert(data);
+                    $("#ddl_sub").html(data);
+                    
+                    for(var i=0;i<data.length; i++)
+                    {
+                        var obj = data[i];
+                        //alert(obj.testDeptID);
+                        $('#ddl_sub').append('<option value=' + obj.testSub_DeptName + '>' + obj.testSub_DeptName + '</option>');
+                    }
+
+                  
+                });
+                return false;
+            });
+
+
+
+        });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<div class="jumbotron" style="background-color:#f5fffa">
+    @using (Html.BeginForm("AddTest", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend><center><b class="g-font-size-26--lg">ENTER TEST DETAILS</b></center></legend>
+            <table align="center" style="width:70%">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TestName, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.TestName, new { @class = "form-control", placeholder="*Eg. MRI"})
+
+                        </div>
+                    </td>
+                    <td style="color:red;">
+                        <b>@Html.ValidationMessageFor(model => model.TestName)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TestDesc, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextAreaFor(model => model.TestDesc, new { @class = "form-control ", placeholder = "*Max 5000 Characters",@row=7 })
+
+                        </div>
+                    </td>
+                    <td style="color:red;">
+                        <b>@Html.ValidationMessageFor(model => model.TestDesc)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.file, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*<input type="file" name="file" class="form-control s-form-v2__input g-radius--50" />*@
+                            @Html.TextBoxFor(model => model.file, new { type = "file", @class = "form-control" })
+
+                        </div>
+                    </td>
+                    <td style="color:red;">
+                        <b>@Html.ValidationMessageFor(model => model.file)</b>
+                    </td>
+                </tr>
+                @if ((string)ViewBag.Error != "")
+                {
+                    <tr> <td></td>  <td style="color:red"><b>@ViewBag.Error</b></td></tr>
+                   <tr><td> <div style="height:10px"></div></td></tr>
+                }
+              
+                
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TestSchedule, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.TestSchedule, new { @class = "form-control",placeholder="*Eg. Everyday 7pm." })
+
+                        </div>
+                    </td>
+                    <td style="color:red;">
+                        <b>@Html.ValidationMessageFor(model => model.TestSchedule)</b>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.testDeptID, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.DropDownList("testDeptID", ViewBag.dpt as List<SelectListItem>, new { id = "ddl_dept", @class = "form-control " })
+                        </div>
+                    </td>
+                    <td style="color:red;">
+                        <b>@Html.ValidationMessageFor(model => model.testDeptID)</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.testSub_DeptName, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            
+                            @*@Html.DropDownList("testSub_DeptName", ViewBag.dpt1 as List<SelectListItem>, new {id="ddl_sub", @class = "form-control " })*@
+                            <select id="ddl_sub" name="testSub_DeptName" class="form-control">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td style="color:red;">
+                        <b>@Html.ValidationMessageFor(model => model.testSub_DeptName)</b>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit" class="btn-primary" />
+                    </td>
+                </tr>
+                @*<tr>
+                    <td></td>
+                    
+                </tr>*@
+            </table>
+        </fieldset>
+    }
+
+</div>
+
+
+
+

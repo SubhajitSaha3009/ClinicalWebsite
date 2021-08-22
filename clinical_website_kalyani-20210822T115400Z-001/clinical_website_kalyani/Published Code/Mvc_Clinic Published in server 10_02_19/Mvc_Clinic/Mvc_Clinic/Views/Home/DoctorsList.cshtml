@@ -1,0 +1,232 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<Mvc_Clinic.Models.DoctorModel>
+
+@{
+    ViewBag.Title = "Find A Doctor :: Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_myLayout_Home.cshtml";
+}
+
+
+
+<script>
+    DoctorsList();
+</script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#txt").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Home/GetDoctors",
+                    type: "POST",
+                    datatype: "json",
+                    data: { searchTerm: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.doctorName, value: item.doctorName
+                            };
+                        }))
+                    }
+                })
+            },
+        });
+    });
+
+    $(document).ready(function () {
+        $("#txtSpeciality").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Home/GetDoctorsSpeciality",
+                    type: "POST",
+                    datatype: "json",
+                    data: { searchTerm: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.doctorSpeciality, value: item.doctorSpeciality };
+                        }))
+                    }
+                })
+            },
+        });
+    });
+
+</script>
+@*<div style="margin-top:50px;margin-bottom:50px;"><center><h2>All Available Doctors at Clinic</h2></center></div>*@
+<div class="container-fluid gap-30 g-padding-y-120--xs g-padding-y-120--sm" style="background-image: url(../../Content/MyTemplate/img/Doctorlist.jpg)">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="jumbotron g-padding-x-15--xs g-padding-x-0--sm" style="background: rgba(184, 237, 185, 0.2);">
+                    @using (@Html.BeginForm())
+                    {
+                        <div class="row">
+                            <div class="form-group">
+                                <label style="color:deepskyblue;font-size:18px">
+                                    Search Doctors :
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-search"></span>
+                                    </div>
+                                    @Html.DropDownList("SearchDay", ViewBag.days as List<SelectListItem>, new { @class = "form-control " })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon" style="z-index:1">
+                                        <span class="fa fa-search"></span>
+                                    </div>
+                                    @Html.TextBox("SearchDoctor", null, new { @class = "form-control", id = "txt", placeholder = "Search by Doctor Name" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="input-group" style="z-index:0">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-search"></span>
+                                    </div>
+                                    @Html.TextBox("SearchSpeciality", null, new { @class = "form-control", id = "txtSpeciality", placeholder = "Search by Speciality i.e. Orthopaedic" })
+                                </div>
+                                <br />
+                                <input type="submit" name="SearchSpeciality" value="Search" class="btn btn-primary" />
+                                @*<span class="fa fa-search"></span>*@
+                            </div>
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 jumbotron" style="background: rgba(184, 237, 185, 0.2); ">
+                <div>
+                    @if (ViewBag.SearchResult != null || ViewBag.noMatchFound != null)
+                    {
+                        <center class="g-margin-b-30--xs g-font-size-20--xs g-margin-t-o-20--xs g-padding-y-10--xs g-radius--4" style="background-color:#D8FF70">
+                            <b style="color:red;">@ViewBag.noMatchFound</b>
+                            @if (ViewBag.SearchResult != null && ViewBag.noMatchFound == null)
+                            {
+                                <b style="color:darkblue">@ViewBag.SearchResult</b>
+                            }
+                        </center>
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="row DarkShadow" style="border:gray 1px solid;background-color:white;">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <img class="Pic img-thumbnail" src="@item.imageAddress" onerror="this.onerror = null; this.src = '/DoctorImages/doctor.jpg'" style="height:230px" />
+                            </div>
+                            <div class="col-md-8 col-sm-6 col-xs-12">
+                                <div class="row g-margin-b-0--xs">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                        <div class="row" style="margin-top:9px;margin-left:10px">
+                                            <h4 class="g-margin-b-0--xs g-font-size-22--xs"><b style="color:darkorange">@Html.DisplayFor(modelItem => item.doctorName)</b></h4>
+                                        </div>
+                                        <div class="row g-margin-b-5--xs">
+                                            <div class="col-xs-12" style="margin-left:10px">
+                                                <i class="fa fa-hospital-o" style="color:green;"></i>&nbsp;&nbsp;<b class="g-font-weight--700 g-font-size-12--xs" style="color: #71E494; ">@Html.DisplayFor(modelItem => item.doctorDesignation)</b>
+                                            </div>
+                                        </div>
+                                        <table class="table table-stripped g-margin-b-4--xs" style="width:90%;">
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                        string intSpacedString = item.doctorSpeciality;
+                                                        char[] spaceSeparator = new char[] { ' ' };
+                                                        string[] result;            
+                                                        result = intSpacedString.Split(spaceSeparator, StringSplitOptions.None);
+                                                        int len = 0;
+                                                        if (result.Length > 4)
+                                                        {
+                                                            item.doctorSpeciality = "";
+                                                            foreach (string str in result)
+                                                            {
+                                                                if (len < 4)
+                                                                {
+                                                                    item.doctorSpeciality += result[len] + " ";
+                                                                    len++;
+                                                                }
+                                                                else { break; }
+                                                            }
+                                                            item.doctorSpeciality += "...";
+                                                        }
+                                                    }
+                                                    <i class="fa fa-stethoscope" style="color:green; font-size: 17px; "></i>&nbsp;&nbsp;<b class="g-font-weight--500 g-font-size-13--xs">@Html.DisplayFor(modelItem => item.doctorSpeciality)</b>
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-check-circle" style="color:green;">&nbsp;</i><i>Verified Doctor</i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                        string intSpacedStringDeg = item.doctorDegree;
+                                                        char[] spaceSeparatorDeg = new char[] { ' ' };
+                                                        string[] resultDeg;
+                                                        resultDeg = intSpacedStringDeg.Split(spaceSeparatorDeg, StringSplitOptions.None);
+                                                        int lenDeg = 0;
+                                                        if (resultDeg.Length > 4)
+                                                        {
+                                                            item.doctorDegree = "";
+                                                            foreach (string str in resultDeg)
+                                                            {
+                                                                if (lenDeg < 4)
+                                                                {
+                                                                    item.doctorDegree += resultDeg[lenDeg] + " ";
+                                                                    lenDeg++;
+                                                                }
+                                                                else { break; }
+                                                            }
+                                                            item.doctorDegree += "...";
+                                                        }
+                                                    }
+                                                    <i class="fa fa-graduation-cap" style="color:green; font-size: 17px; "></i>&nbsp;&nbsp;<b class="g-font-weight--500 g-font-size-13--xs">@Html.DisplayFor(modelItem => item.doctorDegree)</b>
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-user-plus" style="color:green">&nbsp;</i><i>Accepting New Patients</i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    @*<i class="fa fa-universal-access" style="color:green">&nbsp;</i><i>Grants Access To Records</i>*@
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+                                    </div>
+                                      
+
+                                </div>
+                                <div class="row" style="text-align: right; background-color: #2EC1C8; height: 50px; margin-left:-15px ">
+                                    <a href="@Url.Action("ShowDocSchedule", "Home", new { doctorID = item.doctorID })" class="btn" style="background-color:white; color: black; margin-top: 8px; margin-right: 20px; ">Get Doctor Schedule </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <center>
+        @Html.PagedListPager(Model, Page => Url.Action("DoctorsList", new { Page }))
+    </center>
+</div>
+

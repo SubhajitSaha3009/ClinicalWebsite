@@ -1,0 +1,13 @@
+
+CREATE TABLE ACTIVITY_LOG
+(
+activityID INT PRIMARY KEY IDENTITY(1,1),
+activityName VARCHAR(40) not null,
+activityType VARCHAR(30) not null,
+activityByAdminID INT FOREIGN KEY REFERENCES Admins(adminID),
+activityTime DATETIME NOT NULL DEFAULT (GETDATE()),
+activityRemarks VARCHAR(8000)
+)
+GO
+
+DROP TABLE ACTIVITY_LOG

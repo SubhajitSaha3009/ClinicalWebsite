@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Mvc_Clinic.Models.TestDepartmentsModel>
+
+@{
+    ViewBag.Title = "Test Departments :: Mitali Memorial Poly Clinic";
+    Layout = "~/Views/Shared/_myLayout_Home.cshtml";
+}
+<style>
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: bold;
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+</style>
+<script>
+    AllTests();
+</script>
+
+<link href="~/Content/MyTemplate/TestDepartments/layout/styles/fontawesome-4.5.0.min.css" rel="stylesheet" />
+@*<link href="~/Content/MyTemplate/TestDepartments/assets/css/style.css" rel="stylesheet" />*@
+<link href="~/content/mytemplate/testdepartments/layout/styles/layout.css" rel="stylesheet" />
+
+
+
+<div class="container-fluid g-padding-y-120--xs g-padding-y-120--sm" style="background: url(../../Content/MyTemplate/img/Doctorlist.jpg) 100% 0 no-repeat fixed;">
+    <div class="row js__parallax-window">
+        <div class="col-md-12">
+            <!-- Title -->
+            <h2 class="g-font-weight--700 g-font-size-24--xs g-font-size-44--sm g-font-size-54--md g-color--dark g-text-center--xs g-margin-b-40--xs"><b style="border: white 1px solid; background: rgba(240, 250, 234,0.4); font-family: 'Bodoni MT'; color: rgba(5, 39, 57,1); " class="g-radius--50 g-padding-x-15--xs" @*style=" "*@>&nbsp;Test&nbsp; Departments&nbsp;</b></h2>
+        </div>
+        <div class="col-xs-12 g-margin-b-45--xs">
+            @foreach (var item in Model)
+            {
+                <a href="@Url.Action("AllTests", "Home", new { id=item.testDeptID })">
+                    <div class="col-md-3 col-sm-6 g-margin-b-20--xs ">
+                        <div class="services wow flipInY g-color--dark" data-wow-duration="2s" data-wow-delay="0.1s" style="background: rgba(159, 218, 121,0.3); ">
+                            <article>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <i class="fa fa-5x fa-thermometer-three-quarters"></i>
+                                        
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h4 class="heading font-x1 g-color--dark">
+                                            @Html.DisplayFor(modelItem => item.testDeptName)
+                                        </h4>
+                                    </div>
+                                </div>
+
+                            </article>
+                        </div>
+                    </div>
+                </a>
+            }
+
+        </div>
+    </div>
+</div>
+<script src="~/Content/MyTemplate/TestDepartments/assets/js/common.js"></script>
+
+
+
+
+
+

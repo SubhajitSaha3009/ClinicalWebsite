@@ -1,0 +1,186 @@
+﻿@model Mvc_Clinic.Models.StaffModel
+
+@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#dob").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#StJoiDate").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+
+
+
+
+
+
+<div class="jumbotron" style="background-color:#f5fffa">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <center><legend><h2><b>Enter Staff Details</b></h2></legend></center>
+
+            <table align="center" style="width:70%">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StaffName, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.StaffName, new { @Class="form-control",placeholder="*Name"})
+
+                        </div>
+                    </td>
+                    <td>
+                        <b style="color:red">@Html.ValidationMessageFor(model => model.StaffName)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StaffGender, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.TextBoxFor(model => model.StaffGender, new { @Class = "form-control" })*@
+                            Male @Html.RadioButton("StaffGender", "Male", false)
+                            Female @Html.RadioButton("StaffGender", "Female", false)
+
+                        </div>
+
+                    </td>
+                    <td>
+                        <b style="color:red">@Html.ValidationMessageFor(model => model.StaffGender)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dob, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.TextBoxFor(model => model.dob, new { type = "Date", @Class = "form-control" })*@
+                            @Html.TextBox("dob", "", new { @class = "form-control ", placeholder = "mm/dd/yyyy", @readonly = "readonly" })
+
+                        </div>
+                    </td>
+                    <td>
+                        <b style="color:red"> @Html.ValidationMessageFor(model => model.dob)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StaffAddress, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextAreaFor(model => model.StaffAddress, new { @Class = "form-control",placeholder="*Max 100 Characters"})
+
+                        </div>
+                    </td>
+                    <td>
+                        <b style="color:red">@Html.ValidationMessageFor(model => model.StaffAddress)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StaffMobileNo, new { @style = "font-size:18px;" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.StaffMobileNo, new { @Class = "form-control" ,placeholder="*No Country Code(+91)"})
+
+                        </div>
+                    </td>
+                    <td>
+                        <b style="color:red"> @Html.ValidationMessageFor(model => model.StaffMobileNo)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StaffEmailID, new { @style = "font-size:18px;" })
+                        </div>
+
+
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.StaffEmailID, new { @Class = "form-control",placeholder="xyz@xyz.com / N/A"})
+
+                        </div>
+                    </td>
+                    <td>
+                        <b style="color:red">@Html.ValidationMessageFor(model => model.StaffEmailID)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StJoiDate, new { @style = "font-size:18px;" })
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*@Html.TextBoxFor(model => model.StJoiDate, new { type = "Date", @Class = "form-control" })*@
+                            @Html.TextBox("StJoiDate", "", new { @class = "form-control ", placeholder = "mm/dd/yyyy", @readonly = "readonly" })
+
+                        </div>
+                    </td>
+                    <td>
+                        <b style="color:red"> @Html.ValidationMessageFor(model => model.StJoiDate)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color:red"><b>@ViewBag.Error</b></td>
+                </tr>
+            </table>
+
+        </fieldset>
+    }
+
+</div>
